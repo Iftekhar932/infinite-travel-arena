@@ -1,0 +1,18 @@
+.banner-box {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+}
+.img-box {
+  /* background: url("https://i.ibb.co/zFrDLKS/s-migaj-9-D3swqm-EFjk-unsplash.jpg") no-repeat; */
+  margin: 1.5rem;
+  /* height: 35rem; */
+  width: 100%;
+  position: relative;
+}
+.img-box h1.img-text {
+  color: rgb(246, 166, 38);
+  font-size: 3.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
