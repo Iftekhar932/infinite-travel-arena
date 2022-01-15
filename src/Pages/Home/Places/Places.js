@@ -14,8 +14,8 @@ const Places = () => {
   }, []);
 
   return (
-    <div className="placeBox-formation">
-      <h1>Plans For Next Journey</h1>
+    <div className="placeBox-formation my-5">
+      <h1>Up Next We Are Going</h1>
       <div className="placeDisplayBox">
         {places.map((place) => {
           return <Place place={place} key={place._id}></Place>;

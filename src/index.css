@@ -7,7 +7,8 @@ body {
   color: rgb(75, 71, 71);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: honeydew;
+  /* background-color: honeydew; */
+  background-color: rgb(197 197 197);
 }
 
 code {

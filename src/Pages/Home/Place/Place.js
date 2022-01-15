@@ -7,7 +7,7 @@ const Place = ({ place }) => {
   const { cost, rating, discount, policy, imgURL, time, destination } = place;
   return (
     <div className="singleBox">
-      <Card.Img variant="top" src={imgURL} height="600px" />
+      <Card.Img variant="top" src={imgURL} height="400px" />
       <Card.Body>
         <Card.Title>
           <h3>{destination}</h3>

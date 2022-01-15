@@ -1,6 +1,10 @@
 .singleBox {
   background: white;
-  padding: 1rem;
+  padding: 2rem;
   width: 500px;
   height: initial;
+  border-radius: 40%/ 10% 10%;
+}
+.singleBox img {
+  border-radius: 40%/ 10% 10%;
 }
