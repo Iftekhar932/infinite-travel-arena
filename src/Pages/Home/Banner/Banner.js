@@ -1,36 +1,47 @@
 import React from "react";
 import "./Banner.css";
+import { Carousel } from "react-bootstrap";
+
 const Banner = () => {
   return (
-    <div className="banner-box">
-      <div className="img-box">
-        <img
-          src="https://i.ibb.co/k1B3MrD/mohamed-nohassi-odx-B5o-IG-i-A-unsplash.jpg"
-          alt=""
-          width="100%"
-        />
-        <h1 className="img-text">Like to Travel? is travelling your hobby?</h1>
-      </div>
-      <div className="img-box2">
-        <div>
-          <h4>Like to go around?</h4>
+    <div className="bannerBox">
+      <Carousel>
+        <Carousel.Item>
           <img
-            src="https://i.ibb.co/zFrDLKS/s-migaj-9-D3swqm-EFjk-unsplash.jpg"
-            alt=""
-            width="100%"
-            height="25%"
+            className="d-block w-100"
+            src="https://i.ibb.co/QbLp7D4/s-migaj-Yui5vf-KHuzs-unsplash.jpg"
+            alt="First slide"
           />
-        </div>
-        <div>
-          <h4>Wanna enjoy travelling to the fullest?</h4>
+          <Carousel.Caption>
+            <h3>Is Travelling your hobby?</h3>
+            <p>Connect With Us</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
           <img
+            className="d-block w-100"
             src="https://i.ibb.co/sK2GVrM/luca-bravo-O453-M2-Liufs-unsplash.jpg"
-            alt=""
-            width="100%"
-            height="25%"
+            alt="Second slide"
           />
-        </div>
-      </div>
+
+          <Carousel.Caption>
+            <h3>Nothing is more enjoying than travelling?</h3>
+            <p>Be Our Guest</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://i.ibb.co/k1B3MrD/place-0.jpg"
+            alt="Third slide"
+          />
+
+          <Carousel.Caption>
+            <h3>Always looking for opportunities to travel?</h3>
+            <p>Keep in touch with us.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
     </div>
   );
 };

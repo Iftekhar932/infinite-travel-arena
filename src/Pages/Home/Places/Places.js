@@ -15,7 +15,10 @@ const Places = () => {
 
   return (
     <div className="placeBox-formation my-5">
-      <h1>Up Next We Are Going</h1>
+      <div className="headerText">
+        <h1 className="">Up Next We Are Going</h1>
+        <div></div>
+      </div>
       <div className="placeDisplayBox">
         {places.map((place) => {
           return <Place place={place} key={place._id}></Place>;

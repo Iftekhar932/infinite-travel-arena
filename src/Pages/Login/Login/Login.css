@@ -1,0 +1,19 @@
+h1.form-h-text {
+  margin: 2rem 0;
+  text-align: center;
+}
+div.form-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid;
+  padding: 2.5rem;
+  width: 50vh;
+  margin: auto;
+  background-color: rgb(134, 144, 150);
+}
+div.form-box a {
+  text-decoration: none;
+  color: white;
+}
