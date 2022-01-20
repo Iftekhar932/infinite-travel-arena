@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const Login = () => {
   const { signInWithGoogle, signInWithEmail } = useAuth();
+  const navigate = useNavigate();
   const [loginData, setLoginData] = useState({});
 
   const handleOnblur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
     const newLoginData = { ...loginData };
-    loginData[field] = value;
+    newLoginData[field] = value;
     setLoginData(newLoginData);
-    console.log(newLoginData);
+    console.log(loginData);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    signInWithEmail(loginData.email, loginData.password);
+    signInWithEmail(loginData.email, loginData.password, navigate);
   };
 
   return (
@@ -29,8 +30,9 @@ const Login = () => {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
-              onBlur={handleOnblur}
+              onKeyUp={handleOnblur}
               type="email"
+              name="email"
               placeholder="Enter email"
             />
             <Form.Text className="text-muted">
@@ -41,8 +43,9 @@ const Login = () => {
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
-              onBlur={handleOnblur}
+              onKeyUp={handleOnblur}
               type="password"
+              name="password"
               placeholder="Password"
             />
           </Form.Group>

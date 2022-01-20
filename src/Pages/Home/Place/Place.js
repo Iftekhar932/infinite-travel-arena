@@ -3,7 +3,6 @@ import "./Place.css";
 import { Card, Button, Col, Row } from "react-bootstrap";
 
 const Place = ({ place }) => {
-  console.log(place);
   const { cost, rating, discount, policy, imgURL, time, destination } = place;
   return (
     <div className="singleBox">

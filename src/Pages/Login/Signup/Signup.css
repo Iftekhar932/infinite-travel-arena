@@ -9,11 +9,11 @@ div.form-box {
   align-items: center;
   border: 3px solid;
   padding: 2.5rem;
-  width: 50vh;
+  width: 30rem;
   margin: auto;
   background-color: rgb(134, 144, 150);
 }
 div.form-box a {
-  text-decoration: none;
+  /* text-decoration: none; */
   color: white;
 }

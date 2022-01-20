@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./Signup.css";
 import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const Signup = () => {
-  const { signUpWithEmail, signInWithGoogle } = useAuth();
+  const { signUpWithEmail, signInWithGoogle, user } = useAuth();
+  const navigate = useNavigate();
   const [loginData, setLoginData] = useState({});
 
   const handleOnblur = (e) => {
@@ -18,23 +19,43 @@ const Signup = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    signUpWithEmail(loginData.email, loginData.password);
+    signUpWithEmail(
+      loginData.email,
+      loginData.password,
+      loginData.displayName,
+      navigate
+    );
+    e.target.reset();
+  };
+
+  const signInWithGoogleNavigate = () => {
+    signInWithGoogle(navigate);
   };
 
   return (
     <div>
       <h1 className="form-h-text">Please Sign-up Here!</h1>
-
       <div className="form-box">
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Your Name</Form.Label>
             <Form.Control
-              onBlur={() => handleOnblur}
+              type="name"
+              name="displayName"
+              placeholder="Enter Name"
+              onKeyUp={handleOnblur}
+            />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email Address</Form.Label>
+            <Form.Control
               type="email"
               name="email"
               placeholder="Enter email"
-              onBlur={handleOnblur}
+              onKeyUp={handleOnblur}
             />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
@@ -46,8 +67,8 @@ const Signup = () => {
             <Form.Control
               type="password"
               name="password"
-              placeholder="Password"
-              onBlur={handleOnblur}
+              placeholder="Enter Password"
+              onKeyUp={handleOnblur}
             />
           </Form.Group>
           {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -58,11 +79,11 @@ const Signup = () => {
           </Button>
         </Form>
         <br />
-        <Button variant="success" onClick={signInWithGoogle}>
+        <Button variant="success" onClick={signInWithGoogleNavigate}>
           Signup With Google
         </Button>{" "}
         <br />
-        <Link to="/login">Already have an account?Log In! </Link>
+        <Link to="/login">Already have an account? Login Here! </Link>
       </div>
     </div>
   );
