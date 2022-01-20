@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, container } from "react-bootstrap";
 
 import Place from "../Place/Place";
 import "./Places.css";
@@ -17,7 +17,7 @@ const Places = () => {
     <div className="placeBox-formation my-5">
       <div className="headerText">
         <h1 className="">Up Next We Are Going</h1>
-        <div></div>
+        <div className="mb-5"></div>
       </div>
       <div className="placeDisplayBox">
         {places.map((place) => {

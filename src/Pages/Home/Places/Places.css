@@ -1,6 +1,3 @@
-.placeBox-formation {
-  margin-bottom: -5rem;
-}
 .placeBox-formation div.headerText div {
   border-bottom: 1px solid;
   width: 20%;
@@ -15,7 +12,8 @@
 }
 .placeDisplayBox {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: space-evenly;
-  place-items: center;
+  grid-template-columns: repeat(auto-fit, 30rem);
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }

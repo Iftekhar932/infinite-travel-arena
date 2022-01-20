@@ -1,15 +1,19 @@
 import React from "react";
 import { Nav, Container, Navbar, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 const Header = () => {
   const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+  const signOutNavigate = () => {
+    signOut(navigate);
+  };
   return (
-    <div>
+    <header>
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="#home">
-            {user ? user.displayName : "Infinite Travel Arena"}
+            User: {user && user.displayName}
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
@@ -40,7 +44,7 @@ const Header = () => {
           </Button>
           {user && (
             <Button
-              onClick={signOut}
+              onClick={signOutNavigate}
               variant="primary"
               style={{ marginLeft: "1rem" }}
             >
@@ -58,7 +62,7 @@ const Header = () => {
           )}
         </Container>
       </Navbar>
-    </div>
+    </header>
   );
 };
 

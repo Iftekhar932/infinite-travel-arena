@@ -77,8 +77,6 @@ const useFirebase = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user.email, user.password);
-        console.log(user);
         setUser(user);
         navigate("/");
       })
@@ -91,11 +89,12 @@ const useFirebase = () => {
   /********* EMAIL & PASSWORD SIGN IN ****************/
 
   /********* SIGNOUT  *********/
-  const signOut = () => {
+  const signOut = (navigate) => {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
         setUser({});
+        navigate("signup");
       })
       .catch((error) => {
         // An error happened.
