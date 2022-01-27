@@ -9,7 +9,7 @@ const Banner = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://i.ibb.co/QbLp7D4/s-migaj-Yui5vf-KHuzs-unsplash.jpg"
+            src="https://i.ibb.co/N1tRTxn/vcr7.jpg"
             alt="First slide"
           />
           <Carousel.Caption>

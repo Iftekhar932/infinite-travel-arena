@@ -12,12 +12,12 @@ const Header = () => {
     <header>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="#home" className="d-none d-sm-block">
             User: {user && user.displayName}
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Services</Nav.Link>
+            <Nav.Link href="/home">Home</Nav.Link>
+            <Nav.Link href="/services">Services</Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
           {user &&
@@ -34,14 +34,17 @@ const Header = () => {
                 </Link>
               </Button>
             )}
-          <Button variant="success">
-            <Link
-              style={{ color: "white", textDecoration: "none" }}
-              to="Signup"
-            >
-              Sign-Up
-            </Link>
-          </Button>
+          {user &&
+            !(
+              <Button variant="success">
+                <Link
+                  style={{ color: "white", textDecoration: "none" }}
+                  to="Signup"
+                >
+                  Sign-Up
+                </Link>
+              </Button>
+            )}
           {user && (
             <Button
               onClick={signOutNavigate}

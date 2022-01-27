@@ -1,18 +1,19 @@
 import React from "react";
-import "./Place.css";
+// import "./Service.css";
+import "../../Login/Login/Login";
 import { Card, Button } from "react-bootstrap";
 
-const Place = ({ place }) => {
-  const { cost, rating, discount, policy, imgURL, time, destination } = place;
+const Service = ({ service }) => {
+  const { category, cost, rating, discount, policy, imgURL } = service;
   return (
     <div className="singleBox">
       <Card.Img variant="top" src={imgURL} height="400px" />
       <Card.Body>
         <Card.Title>
-          <h3>{destination}</h3>
+          <h3>{category}</h3>
         </Card.Title>
         <Card.Title>Rating: {rating}</Card.Title>
-        <Card.Title>Departure Date: {time}</Card.Title>
+        <Card.Title>cost: {cost}</Card.Title>
         <Card.Title>Discounts: {discount}</Card.Title>
         <Card.Text>
           <h6>Policy: {policy}</h6>
@@ -23,4 +24,4 @@ const Place = ({ place }) => {
   );
 };
 
-export default Place;
+export default Service;

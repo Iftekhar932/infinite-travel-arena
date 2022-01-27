@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import { Row, Col, container } from "react-bootstrap";
-
 import Place from "../Place/Place";
 import "./Places.css";
 
