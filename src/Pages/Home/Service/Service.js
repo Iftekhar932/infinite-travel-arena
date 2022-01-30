@@ -4,7 +4,7 @@ import "../../Login/Login/Login";
 import { Card, Button } from "react-bootstrap";
 
 const Service = ({ service }) => {
-  const { category, cost, rating, discount, policy, imgURL } = service;
+  const { id, category, cost, rating, discount, policy, imgURL } = service;
   return (
     <div className="singleBox">
       <Card.Img variant="top" src={imgURL} height="400px" />

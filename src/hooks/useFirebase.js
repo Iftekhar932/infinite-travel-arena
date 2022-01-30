@@ -64,7 +64,6 @@ const useFirebase = () => {
           });
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage);
       });
@@ -79,6 +78,7 @@ const useFirebase = () => {
         const user = userCredential.user;
         setUser(user);
         navigate("/");
+        console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -89,15 +89,17 @@ const useFirebase = () => {
   /********* EMAIL & PASSWORD SIGN IN ****************/
 
   /********* SIGNOUT  *********/
-  const signOut = (navigate) => {
-    const auth = getAuth();
+  const signOutHandler = (navigate) => {
+    // const auth = getAuth();
     signOut(auth)
       .then(() => {
         setUser({});
         navigate("signup");
+        console.log(user);
       })
       .catch((error) => {
         // An error happened.
+        console.log(error.message);
       });
   };
   /********* SIGNOUT  *********/
@@ -106,22 +108,24 @@ const useFirebase = () => {
   useEffect(() => {
     const unSubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
         setUser(user);
-        // ...
+        console.log(user);
       } else {
-        // User is signed out
-        // ...
         setUser({});
+        console.log(user);
       }
     });
-
     return () => unSubscribed;
   }, []);
   /************ OBSERVER ***********/
-  return { signInWithGoogle, signUpWithEmail, signInWithEmail, signOut, user };
+  return {
+    signInWithGoogle,
+    signUpWithEmail,
+    signInWithEmail,
+    signOutHandler,
+    user,
+  };
 };
 
 export default useFirebase;

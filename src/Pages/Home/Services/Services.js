@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Services.css";
 import Service from "../Service/Service";
-import Ratings from "../Ratings/Ratings";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -12,7 +11,6 @@ const Services = () => {
   }, []);
   return (
     <>
-      <Ratings></Ratings>
       <div className="placeBox-formation my-5">
         <div className="headerText">
           <h1 className="">Our Services</h1>

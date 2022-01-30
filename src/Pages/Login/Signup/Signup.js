@@ -37,7 +37,7 @@ const Signup = () => {
       <h1 className="form-h-text">Please Sign-up Here!</h1>
       <div className="form-box">
         <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId="formBasicName">
             <Form.Label>Your Name</Form.Label>
             <Form.Control
               type="name"

@@ -1,9 +1,11 @@
 import React from "react";
 import "./Place.css";
 import { Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Place = ({ place }) => {
-  const { cost, rating, discount, policy, imgURL, time, destination } = place;
+  const { id, cost, rating, discount, policy, imgURL, time, destination } =
+    place;
   return (
     <div className="singleBox">
       <Card.Img variant="top" src={imgURL} height="400px" />
@@ -17,7 +19,9 @@ const Place = ({ place }) => {
         <Card.Text>
           <h6>Policy: {policy}</h6>
         </Card.Text>
-        <Button variant="dark">Purchase</Button>
+        <Button variant="dark">
+          <Link to={`places/chosen/:${id}`}>Purchase</Link>
+        </Button>
       </Card.Body>
     </div>
   );

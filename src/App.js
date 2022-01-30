@@ -9,6 +9,7 @@ import Services from "./Pages/Home/Services/Services";
 import NotFound from "./Pages/NotFound/NotFound";
 import Header from "./Pages/Shared/Header/Header";
 import RatingForm from "./Pages/Home/RatingForm/RatingForm";
+import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -17,12 +18,34 @@ function App() {
         <BrowserRouter>
           <Header></Header>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="home" element={<Home />} />
-            <Route path="login" element={<Login />} />
-            <Route path="signup" element={<Signup />} />
-            <Route path="services" element={<Services />} />
-            <Route path="ratingform" element={<RatingForm />} />
+            <Route
+              path="/"
+              element={
+                <PrivateRoute>
+                  <Home />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/home"
+              element={
+                <PrivateRoute>
+                  <Home />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/ratingform"
+              element={
+                <PrivateRoute>
+                  <RatingForm />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="places/chosen/:placeID" element={<Services />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
