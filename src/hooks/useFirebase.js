@@ -104,11 +104,11 @@ const useFirebase = () => {
   };
   /********* SIGNOUT  *********/
 
-  /************ OBSERVER ***********/
+  /************ USER STATE OBSERVER ***********/
   useEffect(() => {
     const unSubscribed = onAuthStateChanged(auth, (user) => {
       if (user) {
-        const uid = user.uid;
+        // const uid = user.uid;
         setUser(user);
         console.log(user);
       } else {
@@ -118,7 +118,7 @@ const useFirebase = () => {
     });
     return () => unSubscribed;
   }, []);
-  /************ OBSERVER ***********/
+  /************ USER STATE OBSERVER ***********/
   return {
     signInWithGoogle,
     signUpWithEmail,

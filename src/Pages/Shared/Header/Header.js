@@ -15,9 +15,17 @@ const Header = () => {
             {/* {user ? "Present" : "no"} */}
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/home">Home</Nav.Link>
-            <Nav.Link href="/services">Services</Nav.Link>
-            <Nav.Link href="/ratingform">Rate Us</Nav.Link>
+            <Nav.Link as={Link} to="/">
+              {" "}
+              {/* TO PREVENT FROM RELOADING THE PAGE WHILE ROUTING USED "as={Link}" and instead of "path" used "to" */}
+              Home
+            </Nav.Link>
+            <Nav.Link as={Link} to="/services">
+              Services
+            </Nav.Link>
+            <Nav.Link as={Link} to="/ratingform">
+              Rate Us
+            </Nav.Link>
           </Nav>
 
           {/******* LOGIN BUTTON ******/}

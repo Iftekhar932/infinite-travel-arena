@@ -10,6 +10,7 @@ import NotFound from "./Pages/NotFound/NotFound";
 import Header from "./Pages/Shared/Header/Header";
 import RatingForm from "./Pages/Home/RatingForm/RatingForm";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
+import Booking from "./Pages/Home/Booking/Booking";
 
 function App() {
   return (
@@ -26,14 +27,14 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route
+            {/* <Route
               path="/home"
               element={
                 <PrivateRoute>
                   <Home />
                 </PrivateRoute>
               }
-            />
+            /> */}
             <Route
               path="/ratingform"
               element={
@@ -45,7 +46,10 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/services" element={<Services />} />
-            <Route path="places/chosen/:placeID" element={<Services />} />
+
+            <Route path="/booking/:placeID" element={<Booking />} />
+
+            {/* <Route path="home/booking/:placeID" element={<Booking />} /> */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

@@ -1,20 +1,35 @@
 import React from "react";
+// import Swiper core and required modules
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+
 import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+// Import Swiper styles
+import "swiper/css";
 
 const Rating = ({ rating }) => {
-  const { review, email } = rating;
+  const { email, review } = rating;
   return (
-    <div>
-      <SwiperSlide>
-        <h5>User:{email}</h5>
-        <h6>Review:{review}</h6>
-      </SwiperSlide>
-    </div>
+    <>
+      <Swiper
+        // install Swiper modules
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={50}
+        slidesPerView={3}
+        navigation
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log("slide change")}
+      >
+        <SwiperSlide>Slide 1</SwiperSlide>
+      </Swiper>
+    </>
   );
 };
 
