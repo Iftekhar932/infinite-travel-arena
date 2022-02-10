@@ -26,6 +26,9 @@ const Header = () => {
             <Nav.Link as={Link} to="/ratingform">
               Rate Us
             </Nav.Link>
+            <Nav.Link as={Link} to="/allChoices">
+              Other's Choice
+            </Nav.Link>
           </Nav>
 
           {/******* LOGIN BUTTON ******/}

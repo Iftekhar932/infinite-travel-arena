@@ -10,9 +10,9 @@ const Ratings = () => {
   }, []);
   return (
     <div style={{ cursor: "grab" }}>
-      {ratings.map((rating) => (
+      {/* {ratings.map((rating) => (
         <Rating rating={rating} key={rating._id}></Rating>
-      ))}
+      ))} */}
     </div>
   );
 };

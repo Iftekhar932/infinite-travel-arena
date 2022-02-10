@@ -65,7 +65,7 @@ const useFirebase = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.log(errorMessage);
+        console.log(errorMessage, "Try Again");
       });
   };
   /******** EMAIL & PASSWORD SIGN UP  ********/

@@ -11,6 +11,7 @@ import Header from "./Pages/Shared/Header/Header";
 import RatingForm from "./Pages/Home/RatingForm/RatingForm";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import Booking from "./Pages/Home/Booking/Booking";
+import AllChoices from "./Pages/Home/AllChoices/AllChoices";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
             <Route path="/services" element={<Services />} />
 
             <Route path="/booking/:placeID" element={<Booking />} />
+            <Route path="/allChoices" element={<AllChoices />} />
 
             {/* <Route path="home/booking/:placeID" element={<Booking />} /> */}
             <Route path="*" element={<NotFound />} />
