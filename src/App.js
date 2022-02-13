@@ -28,14 +28,6 @@ function App() {
                 </PrivateRoute>
               }
             />
-            {/* <Route
-              path="/home"
-              element={
-                <PrivateRoute>
-                  <Home />
-                </PrivateRoute>
-              }
-            /> */}
             <Route
               path="/ratingform"
               element={
@@ -49,9 +41,8 @@ function App() {
             <Route path="/services" element={<Services />} />
 
             <Route path="/booking/:placeID" element={<Booking />} />
-            <Route path="/allChoices" element={<AllChoices />} />
 
-            {/* <Route path="home/booking/:placeID" element={<Booking />} /> */}
+            <Route path="/allChoices" element={<AllChoices />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

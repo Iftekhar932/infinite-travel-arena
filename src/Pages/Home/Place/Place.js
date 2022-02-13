@@ -4,11 +4,8 @@ import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Place = ({ place }) => {
-  const { id, cost, rating, discount, policy, imgURL, time, destination } =
+  const { _id, id, cost, rating, discount, policy, imgURL, time, destination } =
     place;
-  /* useEffect(() => {
-    fetch("http://localhost:5000/");
-  }, []); */
   return (
     <div className="singleBox">
       <Card.Img variant="top" src={imgURL} height="400px" />
@@ -25,7 +22,7 @@ const Place = ({ place }) => {
 
         <Link
           style={{ color: "white", textDecoration: "none" }}
-          to={`/booking/${id}`}
+          to={`/booking/${_id}`}
         >
           <Button variant="dark">Purchase</Button>
         </Link>

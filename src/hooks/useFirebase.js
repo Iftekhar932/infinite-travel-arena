@@ -107,14 +107,16 @@ const useFirebase = () => {
   /************ USER STATE OBSERVER ***********/
   useEffect(() => {
     const unSubscribed = onAuthStateChanged(auth, (user) => {
-      if (user) {
+      /* if (user) {
         // const uid = user.uid;
         setUser(user);
         console.log(user);
       } else {
         setUser({});
         console.log(user);
-      }
+      } */
+      user ? setUser(user) : setUser({});
+      console.log(user);
     });
     return () => unSubscribed;
   }, []);
