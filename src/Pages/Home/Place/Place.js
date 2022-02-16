@@ -22,7 +22,7 @@ const Place = ({ place }) => {
 
         <Link
           style={{ color: "white", textDecoration: "none" }}
-          to={`/booking/${_id}`}
+          to={`/booking/${id}`}
         >
           <Button variant="dark">Purchase</Button>
         </Link>

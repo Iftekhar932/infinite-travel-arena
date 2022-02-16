@@ -63,9 +63,16 @@ const Booking = () => {
           <Card.Text>
             <h6>Policy: {chosenPlace.policy}</h6>
           </Card.Text>
+          {/* PREVIOUS ONE IS THE FIRST ONE */}
           <Button variant="primary" onClick={handleConfirmation}>
             Confirm
           </Button>
+
+          {/* <Link to={`allChoices/`}>
+            <Button variant="primary" onClick={handleConfirmation}>
+              Confirm
+            </Button>
+          </Link> */}
         </Card.Body>
       </div>
     </div>
