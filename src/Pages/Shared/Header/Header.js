@@ -12,11 +12,9 @@ const Header = () => {
         <Container>
           <Navbar.Brand href="#home" className="d-none d-sm-block">
             {user && user.displayName}
-            {/* {user ? "Present" : "no"} */}
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">
-              {" "}
               {/* TO PREVENT FROM RELOADING THE PAGE WHILE ROUTING USED "as={Link}" and instead of "path" used "to" */}
               Home
             </Nav.Link>
@@ -27,13 +25,13 @@ const Header = () => {
               Rate Us
             </Nav.Link>
             <Nav.Link as={Link} to="/allChoices">
-              Other's Choice
+              All Choices
             </Nav.Link>
           </Nav>
 
           {/******* LOGIN BUTTON ******/}
-          {!user && (
-            <Button style={{ marginRight: "1rem" }} variant="danger">
+          {!user.email && (
+            <Button style={{ marginRight: "1rem" }} variant="primary">
               <Link
                 style={{
                   color: "white",
@@ -47,7 +45,7 @@ const Header = () => {
           )}
 
           {/******* SIGNUP BUTTON *******/}
-          {!user && (
+          {!user.email && (
             <Button variant="success">
               <Link
                 style={{ color: "white", textDecoration: "none" }}
@@ -59,7 +57,7 @@ const Header = () => {
           )}
 
           {/******* LOGOUT BUTTON *******/}
-          {user && (
+          {user.email && (
             <Button
               onClick={() => signOutHandler(navigate)}
               variant="primary"

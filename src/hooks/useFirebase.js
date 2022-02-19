@@ -16,9 +16,12 @@ initializeAuthentication();
 const useFirebase = () => {
   const auth = getAuth();
   const [user, setUser] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
+  /************** GOOGLE SIGN UP BELOW  ***************/
   const googleProvider = new GoogleAuthProvider();
-  /************** GOOGLE SIGN UP  ***************/
   const signInWithGoogle = (navigate) => {
+    setIsLoading(true);
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
@@ -35,12 +38,16 @@ const useFirebase = () => {
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
         console.log(errorMessage);
+      })
+      .finally(() => {
+        setIsLoading(false); // in tutorial it is used in 'finally()' while removing the 'catch()' below
       });
   };
-  /************** GOOGLE SIGN UP  ***************/
+  /************** GOOGLE SIGN UP ABOVE  ***************/
 
-  /******** EMAIL & PASSWORD SIGN UP  ********/
+  /******** EMAIL & PASSWORD SIGN UP BELOW  ********/
   const signUpWithEmail = (email, password, displayName, navigate) => {
+    setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -66,12 +73,16 @@ const useFirebase = () => {
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage, "Try Again");
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
-  /******** EMAIL & PASSWORD SIGN UP  ********/
+  /******** EMAIL & PASSWORD SIGN UP ABOVE  ********/
 
   /********* EMAIL & PASSWORD SIGN IN ****************/
   const signInWithEmail = (email, password, navigate) => {
+    setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -84,22 +95,29 @@ const useFirebase = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorMessage, errorCode, error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
   /********* EMAIL & PASSWORD SIGN IN ****************/
 
   /********* SIGNOUT  *********/
   const signOutHandler = (navigate) => {
-    // const auth = getAuth();
+    setIsLoading(true);
     signOut(auth)
       .then(() => {
         setUser({});
-        navigate("signup");
+        navigate("/signup");
         console.log(user);
+        setIsLoading(false);
       })
       .catch((error) => {
         // An error happened.
         console.log(error.message);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
   /********* SIGNOUT  *********/
@@ -107,16 +125,9 @@ const useFirebase = () => {
   /************ USER STATE OBSERVER ***********/
   useEffect(() => {
     const unSubscribed = onAuthStateChanged(auth, (user) => {
-      /* if (user) {
-        // const uid = user.uid;
-        setUser(user);
-        console.log(user);
-      } else {
-        setUser({});
-        console.log(user);
-      } */
       user ? setUser(user) : setUser({});
       console.log(user);
+      setIsLoading(false);
     });
     return () => unSubscribed;
   }, []);
@@ -127,6 +138,7 @@ const useFirebase = () => {
     signInWithEmail,
     signOutHandler,
     user,
+    isLoading,
   };
 };
 

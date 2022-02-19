@@ -12,6 +12,7 @@ import RatingForm from "./Pages/Home/RatingForm/RatingForm";
 import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import Booking from "./Pages/Home/Booking/Booking";
 import AllChoices from "./Pages/Home/AllChoices/AllChoices";
+import Profile from "./Pages/Home/Profile/Profile";
 
 function App() {
   return (
@@ -20,14 +21,7 @@ function App() {
         <BrowserRouter>
           <Header></Header>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <PrivateRoute>
-                  <Home />
-                </PrivateRoute>
-              }
-            />
+            <Route path="/" element={<Home />} />
             <Route
               path="/ratingform"
               element={
@@ -38,11 +32,40 @@ function App() {
             />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/services" element={<Services />} />
+            <Route
+              path="/services"
+              element={
+                <PrivateRoute>
+                  <Services />
+                </PrivateRoute>
+              }
+            />
 
-            <Route path="/booking/:placeID" element={<Booking />} />
+            <Route
+              path="/booking/:placeID"
+              element={
+                <PrivateRoute>
+                  <Booking />
+                </PrivateRoute>
+              }
+            />
 
-            <Route path="/allChoices" element={<AllChoices />} />
+            <Route
+              path="/allChoices"
+              element={
+                <PrivateRoute>
+                  <AllChoices />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/userProfile"
+              element={
+                <PrivateRoute>
+                  <Profile />
+                </PrivateRoute>
+              }
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

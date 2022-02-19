@@ -3,8 +3,15 @@ import "./Footer.css";
 import { Container, Row, Col } from "react-bootstrap";
 
 const Footer = () => {
+  const iconCustomStyle = {
+    color: "white",
+    padding: ".5rem",
+    fontSize: "1.5rem",
+  };
+
   return (
     <footer>
+      {/* THESE FONTS ARE WITH FONT-AWESOME CDN */}
       <Container>
         <Row>
           <Col xs={12} md={6} lg={4}>
@@ -26,9 +33,7 @@ const Footer = () => {
                     <i
                       className="fab fa-facebook-square"
                       style={{
-                        color: "white",
-                        padding: ".5rem",
-                        fontSize: "1.5rem",
+                        iconCustomStyle,
                       }}
                     ></i>
                   </a>
@@ -38,9 +43,7 @@ const Footer = () => {
                     <i
                       className="far fa-envelope"
                       style={{
-                        color: "white",
-                        padding: ".5rem",
-                        fontSize: "1.5rem",
+                        iconCustomStyle,
                       }}
                     ></i>
                   </a>
@@ -50,9 +53,7 @@ const Footer = () => {
                     <i
                       className="fas fa-phone-square-alt"
                       style={{
-                        color: "white",
-                        padding: ".5rem",
-                        fontSize: "1.5rem",
+                        iconCustomStyle,
                       }}
                     ></i>
                   </a>

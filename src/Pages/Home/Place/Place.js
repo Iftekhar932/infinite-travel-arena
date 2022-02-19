@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./Place.css";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { MDBIcon } from "mdb-react-ui-kit";
 
 const Place = ({ place }) => {
   const { _id, id, cost, rating, discount, policy, imgURL, time, destination } =
@@ -24,7 +25,10 @@ const Place = ({ place }) => {
           style={{ color: "white", textDecoration: "none" }}
           to={`/booking/${id}`}
         >
-          <Button variant="dark">Purchase</Button>
+          <Button variant="dark">
+            Purchase
+            <MDBIcon fas icon="cart-plus fa-lg" />
+          </Button>
         </Link>
       </Card.Body>
     </div>
