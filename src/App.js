@@ -32,17 +32,25 @@ function App() {
             />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route
+            {/* <Route
               path="/services"
               element={
                 <PrivateRoute>
                   <Services />
                 </PrivateRoute>
               }
-            />
+            /> */}
 
             <Route
-              path="/booking/:placeID"
+              path="/booking/:serviceID"
+              element={
+                <PrivateRoute>
+                  <Booking />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/booking/:vehicleID"
               element={
                 <PrivateRoute>
                   <Booking />

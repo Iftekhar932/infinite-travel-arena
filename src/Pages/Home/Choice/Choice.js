@@ -2,20 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 
 const Choice = ({ choice }) => {
-  // console.log(choice);
   const [displayChoice, setDisplayChoices] = useState([]); // to set the id of the chosen place
-  console.log(displayChoice);
   // GET API (LINE 89 OF INDEX.JS)
   useEffect(() => {
     fetch(`http://localhost:5000/choiceDataLoad?id=${choice.id}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         data.map((v) => {
           setDisplayChoices(v); // setting id here
         });
-        // setDisplayChoices(data);
-        // console.log("Not setting the value unless I reload ", choice.id);
       });
   }, [choice.id]);
 

@@ -1,8 +1,11 @@
 import React from "react";
-import "./Banner.css";
+// import "./Banner.css";
 import { Carousel } from "react-bootstrap";
 
 const Banner = () => {
+  const bannerBtext = {
+    fontSize: "3vw",
+  };
   return (
     <div className="bannerBox">
       <Carousel>
@@ -13,8 +16,8 @@ const Banner = () => {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>Is Travelling your hobby?</h3>
-            <p>Connect With Us</p>
+            <h3 style={bannerBtext}>Is Travelling your hobby?</h3>
+            <h6>Connect With Us</h6>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -25,8 +28,10 @@ const Banner = () => {
           />
 
           <Carousel.Caption>
-            <h3>Nothing is more enjoying than travelling?</h3>
-            <p>Be Our Guest</p>
+            <h3 style={bannerBtext}>
+              Nothing is more enjoying than travelling?
+            </h3>
+            <h6>Be Our Guest</h6>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -37,8 +42,10 @@ const Banner = () => {
           />
 
           <Carousel.Caption>
-            <h3>Always looking for opportunities to travel?</h3>
-            <p>Keep in touch with us.</p>
+            <h3 style={bannerBtext}>
+              Always looking for opportunities to travel?
+            </h3>
+            <h6>Keep in touch with us.</h6>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

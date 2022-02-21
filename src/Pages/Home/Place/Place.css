@@ -1,11 +1,13 @@
 .singleBox {
-  background-color: rgb(250 250 250);
   padding: 2rem;
-  width: 30rem;
-  height: 880px;
-  min-height: 880px;
+  /* width: 30rem; */
+  width: clamp(25rem, 30rem, 35rem);
+  height: initial;
+  /* height: 850px; */
+  min-height: 850px;
   display: inline-block;
   border-radius: 40%/ 10% 10%;
+  background-color: rgb(238, 238, 238);
 }
 .singleBox img {
   border-radius: 40%/ 10% 10%;

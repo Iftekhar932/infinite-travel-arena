@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Services.css";
 import Service from "../Service/Service";
+import { Button, Spinner } from "react-bootstrap";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  // GET API(INDEX.JS LINE 45)
   useEffect(() => {
     fetch("http://localhost:5000/services")
       .then((res) => res.json())
@@ -18,6 +20,18 @@ const Services = () => {
         </div>
 
         <div className="placeDisplayBox">
+          {services == 0 && (
+            <Button variant="dark" disabled>
+              <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+              Loading...
+            </Button>
+          )}
           {services.map((service) => {
             return <Service service={service} key={service._id}></Service>;
           })}

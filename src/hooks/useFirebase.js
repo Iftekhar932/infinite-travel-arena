@@ -25,7 +25,6 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         setUser(user);
         navigate("/");
       })
@@ -53,7 +52,6 @@ const useFirebase = () => {
         // Signed in
         const user = userCredential.user;
         // ...
-        console.log(user);
         setUser(user);
         navigate("/");
         // PROFILE UPDATE
@@ -89,7 +87,6 @@ const useFirebase = () => {
         const user = userCredential.user;
         setUser(user);
         navigate("/");
-        console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -109,7 +106,6 @@ const useFirebase = () => {
       .then(() => {
         setUser({});
         navigate("/signup");
-        console.log(user);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -126,7 +122,6 @@ const useFirebase = () => {
   useEffect(() => {
     const unSubscribed = onAuthStateChanged(auth, (user) => {
       user ? setUser(user) : setUser({});
-      console.log(user);
       setIsLoading(false);
     });
     return () => unSubscribed;

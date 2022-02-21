@@ -1,7 +1,18 @@
+import { MDBDropdownDivider } from "mdb-react-ui-kit";
 import React from "react";
-import { Nav, Container, Navbar, Button } from "react-bootstrap";
+
+import {
+  Nav,
+  Container,
+  Navbar,
+  Button,
+  Dropdown,
+  DropdownButton,
+} from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+
 import useAuth from "../../../hooks/useAuth";
+
 const Header = () => {
   const { user, signOutHandler } = useAuth();
   const navigate = useNavigate();
@@ -10,69 +21,110 @@ const Header = () => {
     <header>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home" className="d-none d-sm-block">
-            {user && user.displayName}
+          <Navbar.Brand
+            as={Link}
+            to="/userProfile"
+            className="d-none d-sm-block"
+          >
+            {user ? user.displayName : "Infinite-travel-arena"}
           </Navbar.Brand>
           <Nav className="me-auto">
+            {/* TO PREVENT FROM RELOADING THE PAGE WHILE ROUTING USED "as={Link}" and instead of "path" used "to" */}
             <Nav.Link as={Link} to="/">
-              {/* TO PREVENT FROM RELOADING THE PAGE WHILE ROUTING USED "as={Link}" and instead of "path" used "to" */}
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/services">
-              Services
-            </Nav.Link>
-            <Nav.Link as={Link} to="/ratingform">
-              Rate Us
-            </Nav.Link>
+
             <Nav.Link as={Link} to="/allChoices">
-              All Choices
+              My Choices
             </Nav.Link>
           </Nav>
 
-          {/******* LOGIN BUTTON ******/}
           {!user.email && (
-            <Button style={{ marginRight: "1rem" }} variant="primary">
-              <Link
-                style={{
-                  color: "white",
-                  textDecoration: "none",
-                }}
-                to="/login"
-              >
-                Log In
-              </Link>
-            </Button>
+            <DropdownButton id="dropdown-basic-button" title="More Options">
+              {/* href="#/action-1" removed this from the  "Dropdown.Item" */}
+              {/* LOGIN BUTTON BELOW */}
+              {!user.email && (
+                <Dropdown.Item>
+                  <Link
+                    style={{
+                      color: "white",
+                      textDecoration: "none",
+                    }}
+                    to="/login"
+                  >
+                    <Button
+                      style={{ marginRight: "1rem" }}
+                      variant="primary"
+                      className="w-100 m-auto "
+                    >
+                      Log In
+                    </Button>
+                  </Link>
+                </Dropdown.Item>
+              )}
+
+              {/* href="#/action-3" removed this from the  "Dropdown.Item" */}
+              {/* SIGNUP BUTTON BELOW */}
+              {!user.email && (
+                <Dropdown.Item>
+                  <Link className="text-white" to="/signup">
+                    <Button
+                      variant="success"
+                      className="w-100 m-auto text-white"
+                    >
+                      Sign-Up
+                    </Button>
+                  </Link>
+                </Dropdown.Item>
+              )}
+            </DropdownButton>
           )}
 
-          {/******* SIGNUP BUTTON *******/}
-          {!user.email && (
-            <Button variant="success">
-              <Link
-                style={{ color: "white", textDecoration: "none" }}
-                to="/signup"
-              >
-                Sign-Up
-              </Link>
-            </Button>
-          )}
-
-          {/******* LOGOUT BUTTON *******/}
+          {/* LOGOUT BUTTON BELOW */}
           {user.email && (
-            <Button
-              onClick={() => signOutHandler(navigate)}
-              variant="primary"
-              style={{ marginLeft: "1rem" }}
-            >
-              <Link
-                style={{
-                  color: "white",
-                  textDecoration: "none",
-                }}
-                to="/signup"
-              >
-                Log-Out
-              </Link>
-            </Button>
+            <DropdownButton id="dropdown-basic-button" title="More Options">
+              <Dropdown.Item>
+                <Link
+                  className="text-decoration-none text-dark "
+                  to="/userProfile"
+                >
+                  My Profile
+                </Link>
+              </Dropdown.Item>
+
+              <Dropdown.Item>
+                <Link
+                  className="text-decoration-none text-dark "
+                  to="/allChoices"
+                >
+                  My Choices
+                </Link>
+              </Dropdown.Item>
+
+              {/* "RATE US" BUTTON BELOW */}
+              <Dropdown.Item>
+                <Link
+                  className="text-decoration-none text-dark "
+                  to="/ratingform"
+                >
+                  Rate Us
+                </Link>
+              </Dropdown.Item>
+
+              {/* LOGOUT BUTTON BELOW */}
+              <Dropdown.Divider />
+              <Dropdown.Item>
+                <Link
+                  onClick={() => signOutHandler(navigate)}
+                  className="text-decoration-none text-dark"
+                  to="/signup"
+                >
+                  <Button variant="danger" className="w-100">
+                    Log-Out
+                  </Button>
+                </Link>
+              </Dropdown.Item>
+            </DropdownButton>
           )}
         </Container>
       </Navbar>

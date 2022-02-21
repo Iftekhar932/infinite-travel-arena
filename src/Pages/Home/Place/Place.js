@@ -8,7 +8,7 @@ const Place = ({ place }) => {
   const { _id, id, cost, rating, discount, policy, imgURL, time, destination } =
     place;
   return (
-    <div className="singleBox">
+    <div className="singleBox mx-auto">
       <Card.Img variant="top" src={imgURL} height="400px" />
       <Card.Body>
         <Card.Title>

@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const Signup = () => {
-  const { signUpWithEmail, signInWithGoogle, user } = useAuth();
+  const { signUpWithEmail, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState({});
 
@@ -15,7 +15,6 @@ const Signup = () => {
     const newLoginData = { ...loginData };
     newLoginData[field] = value;
     setLoginData(newLoginData);
-    console.log(loginData);
   };
   const handleSubmit = (e) => {
     e.preventDefault();

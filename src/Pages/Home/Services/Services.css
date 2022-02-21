@@ -8,7 +8,7 @@
 .placeBox-formation h1 {
   margin-bottom: 1vw;
   text-align: center;
-  font-size: 3vw;
+  font-size: clamp(1.5rem, 2vw, 3vw);
 }
 .placeDisplayBox {
   display: grid;

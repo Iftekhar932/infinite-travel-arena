@@ -1,14 +1,14 @@
-.singleBox {
-  background: white;
+.ServiceSingleBox {
   padding: 2rem;
-  /* width: 500px; */
-  /* width: 50vh; */
-  width: 30rem;
+  /* width: clamp(25rem, 25vw, 31vw); */
+  width: clamp(25rem, 30rem, 35rem);
   height: 850px;
   min-height: 850px;
   display: inline-block;
   border-radius: 40%/ 10% 10%;
+  background-color: rgb(238, 238, 238);
 }
-.singleBox img {
+.ServiceSingleBox img {
   border-radius: 40%/ 10% 10%;
+  width: 100%;
 }

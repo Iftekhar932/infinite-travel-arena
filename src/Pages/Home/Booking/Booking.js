@@ -6,24 +6,32 @@ import useAuth from "../../../hooks/useAuth";
 const Booking = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const { placeID } = useParams();
+  const { serviceID, vehicleID } = useParams();
   const [chosenPlace, setChosenPlace] = useState({});
+  const [chosenVehicle, setChosenVehicle] = useState({});
 
-  // ************ GET API ************
+  // ************ GET API FOR PLACES***** (INDEX.JS LINE 53)*******
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${placeID}`)
+    fetch(`http://localhost:5000/services/${serviceID}`)
       .then((res) => res.json())
       .then((data) => setChosenPlace(data));
+  }, []);
+
+  // ************ GET API VEHICLES***** (INDEX.JS LINE 63)*******
+  useEffect(() => {
+    fetch(`http://localhost:5000/vehicles/${vehicleID}`)
+      .then((res) => res.json())
+      .then((data) => setChosenVehicle(data));
   }, []);
 
   // INFORMATION COLLECTION OBJECT
   const postInfo = {
     email: user.email,
     name: user.name,
-    id: placeID,
+    id: serviceID,
   };
 
-  // ************ POST API ************
+  // ************ POST API *******(INDEX.JS LINE 63)*****
   const handleConfirmation = () => {
     fetch("http://localhost:5000/booking", {
       method: "POST",
@@ -51,6 +59,10 @@ const Booking = () => {
 
   return (
     <div className="placeBox-formation text-center my-5">
+      <h1>
+        {vehicleID}||||||{serviceID}
+      </h1>
+      {/* BOX FOR PLACE DISPLAY  */}
       <div className="singleBox">
         <Card.Img variant="top" src={chosenPlace.imgURL} height="400px" />
         <Card.Body>
@@ -62,6 +74,31 @@ const Booking = () => {
           <Card.Title>Discounts: {chosenPlace.discount}</Card.Title>
           <Card.Text>
             <h6>Policy: {chosenPlace.policy}</h6>
+          </Card.Text>
+          {/* PREVIOUS ONE IS THE FIRST ONE */}
+          <Button variant="primary" onClick={handleConfirmation}>
+            Confirm
+          </Button>
+
+          {/* <Link to={`allChoices/`}>
+            <Button variant="primary" onClick={handleConfirmation}>
+              Confirm
+            </Button>
+          </Link> */}
+        </Card.Body>
+      </div>
+      {/* BOX FOR VEHICLE DISPLAY  */}
+      <div className="singleBox">
+        <Card.Img variant="top" src={chosenVehicle.imgURL} height="400px" />
+        <Card.Body>
+          <Card.Title>
+            <h3>{chosenVehicle.destination}</h3>
+          </Card.Title>
+          <Card.Title>Rating: {chosenVehicle.rating}</Card.Title>
+          <Card.Title>Departure Date: {chosenVehicle.time}</Card.Title>
+          <Card.Title>Discounts: {chosenVehicle.discount}</Card.Title>
+          <Card.Text>
+            <h6>Policy: {chosenVehicle.policy}</h6>
           </Card.Text>
           {/* PREVIOUS ONE IS THE FIRST ONE */}
           <Button variant="primary" onClick={handleConfirmation}>

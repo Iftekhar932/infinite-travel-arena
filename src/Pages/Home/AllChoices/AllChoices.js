@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { Button, Spinner } from "react-bootstrap";
 
 import useAuth from "../../../hooks/useAuth";
 import Choice from "../Choice/Choice";
@@ -16,13 +17,23 @@ const AllChoices = () => {
       .then((response) => response.json())
       .then((data) => {
         setChoices(data);
-        // console.log(data);
       });
   }, []);
 
   return (
     <>
-      <h2>{choices.length}</h2>
+      {choices == 0 && (
+        <Button variant="dark" style={{ margin: " 5% 50%" }} disabled>
+          <Spinner
+            as="span"
+            animation="grow"
+            size="sm"
+            role="status"
+            aria-hidden="true"
+          />
+          Loading...
+        </Button>
+      )}
       {choices.map((choice) => (
         <Choice choice={choice} key={choice.id}></Choice>
       ))}

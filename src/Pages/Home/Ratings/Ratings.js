@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Rating from "../Rating/Rating";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -29,15 +28,16 @@ const Ratings = () => {
         slidesPerView={3}
         navigation
         pagination={{ clickable: true }}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={(d) => d}
+        onSwiper={(swiper) => swiper}
       >
         {ratings.map((rating) => (
           <SwiperSlide key={rating.email}>
-            <div>
+            <div
+              style={{ width: "10rem", display: "block" }}
+              className="border bg-light border-dark p-5 d-block"
+            >
               <h6>Email:{rating.email}</h6>
-            </div>
-            <div>
               <h5>review:{rating.review}</h5>
             </div>
           </SwiperSlide>

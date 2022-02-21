@@ -1,14 +1,29 @@
 import React from "react";
-import { Spinner } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { Navigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const PrivateRoute = ({ children }) => {
   const auth = useAuth();
   const { isLoading, user } = useAuth();
-  console.log(user, user.email);
   if (isLoading) {
-    return <Spinner animation="border" />;
+    return (
+      <Button
+        style={{ marginLeft: "50%", marginRight: "50%", display: "block" }}
+        className="mt-3 mx-auto"
+        variant="dark"
+        disabled
+      >
+        <Spinner
+          as="span"
+          animation="grow"
+          size="sm"
+          role="status"
+          aria-hidden="true"
+        />
+        Loading...
+      </Button>
+    );
   }
 
   return auth ? children : <Navigate to="/login" />;
