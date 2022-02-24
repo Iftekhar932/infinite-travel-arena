@@ -5,8 +5,8 @@ import emptyImg from "../../Additional images/emptyImg.png";
 
 import "./Profile.css";
 const Profile = () => {
-  const { user } = useAuth();
-  console.log(user);
+  const { user, setIsHere } = useAuth();
+  setIsHere(false);
   return (
     <>
       {/* used same css as 'login.js' */}

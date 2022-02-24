@@ -14,7 +14,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
-  const { user, signOutHandler } = useAuth();
+  const { user, signOutHandler, isHere } = useAuth();
   const navigate = useNavigate();
 
   return (
@@ -34,9 +34,11 @@ const Header = () => {
               Home
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/allChoices">
-              My Choices
-            </Nav.Link>
+            {isHere && (
+              <Nav.Link as={Link} to="/allChoices">
+                My Choices
+              </Nav.Link>
+            )}
           </Nav>
 
           {!user.email && (
@@ -83,26 +85,17 @@ const Header = () => {
           {/* LOGOUT BUTTON BELOW */}
           {user.email && (
             <DropdownButton id="dropdown-basic-button" title="More Options">
-              <Dropdown.Item>
+              <Dropdown.Item as={Link} to="/userProfile">
                 <Link
-                  className="text-decoration-none text-dark "
+                  className="text-decoration-none text-dark w-100 d-block"
                   to="/userProfile"
                 >
                   My Profile
                 </Link>
               </Dropdown.Item>
 
-              <Dropdown.Item>
-                <Link
-                  className="text-decoration-none text-dark "
-                  to="/allChoices"
-                >
-                  My Choices
-                </Link>
-              </Dropdown.Item>
-
               {/* "RATE US" BUTTON BELOW */}
-              <Dropdown.Item>
+              <Dropdown.Item as={Link} to="/ratingform">
                 <Link
                   className="text-decoration-none text-dark "
                   to="/ratingform"

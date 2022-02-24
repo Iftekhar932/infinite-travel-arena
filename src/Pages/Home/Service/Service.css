@@ -2,7 +2,8 @@
   padding: 2rem;
   /* width: clamp(25rem, 25vw, 31vw); */
   width: clamp(25rem, 30rem, 35rem);
-  height: 850px;
+  max-height: 950px;
+  height: initial;
   min-height: 850px;
   display: inline-block;
   border-radius: 40%/ 10% 10%;

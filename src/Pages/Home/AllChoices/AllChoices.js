@@ -34,9 +34,14 @@ const AllChoices = () => {
           Loading...
         </Button>
       )}
-      {choices.map((choice) => (
-        <Choice choice={choice} key={choice.id}></Choice>
-      ))}
+      <div
+        className="row d-flex justify-content-around align-items-center mx-auto"
+        style={{ width: "100%" }}
+      >
+        {choices.map((choice) => (
+          <Choice choice={choice} key={choice.id}></Choice>
+        ))}
+      </div>
     </>
   );
 };

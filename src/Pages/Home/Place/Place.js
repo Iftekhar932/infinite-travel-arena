@@ -23,7 +23,7 @@ const Place = ({ place }) => {
 
         <Link
           style={{ color: "white", textDecoration: "none" }}
-          to={`/booking/${id}`}
+          to={`/booking/${id}`} // SENDING "placeID"***************
         >
           <Button variant="dark">
             Purchase

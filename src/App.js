@@ -13,6 +13,7 @@ import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import Booking from "./Pages/Home/Booking/Booking";
 import AllChoices from "./Pages/Home/AllChoices/AllChoices";
 import Profile from "./Pages/Home/Profile/Profile";
+import VehicleBooking from "./Pages/Home/VehicleBooking/VehicleBooking";
 
 function App() {
   return (
@@ -42,7 +43,7 @@ function App() {
             /> */}
 
             <Route
-              path="/booking/:serviceID"
+              path="/booking/:serviceID" // This one is for booking "PLACES"
               element={
                 <PrivateRoute>
                   <Booking />
@@ -50,13 +51,22 @@ function App() {
               }
             />
             <Route
-              path="/booking/:vehicleID"
+              path="/vehicleBooking/:vehicleID" // This one is for booking "VEHICLES"
+              element={
+                <PrivateRoute>
+                  <VehicleBooking />
+                </PrivateRoute>
+              }
+            />
+
+            {/* <Route
+              path="/booking/:placeDeleteID"
               element={
                 <PrivateRoute>
                   <Booking />
                 </PrivateRoute>
               }
-            />
+            /> */}
 
             <Route
               path="/allChoices"

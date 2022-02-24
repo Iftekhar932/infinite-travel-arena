@@ -22,7 +22,7 @@ const Service = ({ service }) => {
         </Card.Text>
         <Link
           style={{ color: "white", textDecoration: "none" }}
-          to={`/booking/${id}`}
+          to={`/vehicleBooking/${id}`} // SENDING "vehicleID"  ************************
         >
           <Button variant="dark">
             Purchase
