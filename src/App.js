@@ -5,7 +5,6 @@ import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
 import Signup from "./Pages/Login/Signup/Signup";
 import AuthProvider from "./context/AuthProvider";
-import Services from "./Pages/Home/Services/Services";
 import NotFound from "./Pages/NotFound/NotFound";
 import Header from "./Pages/Shared/Header/Header";
 import RatingForm from "./Pages/Home/RatingForm/RatingForm";
@@ -14,6 +13,7 @@ import Booking from "./Pages/Home/Booking/Booking";
 import AllChoices from "./Pages/Home/AllChoices/AllChoices";
 import Profile from "./Pages/Home/Profile/Profile";
 import VehicleBooking from "./Pages/Home/VehicleBooking/VehicleBooking";
+import AllVehicles from "./Pages/Home/AllVehicles/AllVehicles";
 
 function App() {
   return (
@@ -33,14 +33,6 @@ function App() {
             />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            {/* <Route
-              path="/services"
-              element={
-                <PrivateRoute>
-                  <Services />
-                </PrivateRoute>
-              }
-            /> */}
 
             <Route
               path="/booking/:serviceID" // This one is for booking "PLACES"
@@ -59,14 +51,14 @@ function App() {
               }
             />
 
-            {/* <Route
-              path="/booking/:placeDeleteID"
+            <Route
+              path="/profile/:placeDeleteID"
               element={
                 <PrivateRoute>
-                  <Booking />
+                  <Profile />
                 </PrivateRoute>
               }
-            /> */}
+            />
 
             <Route
               path="/allChoices"
@@ -84,6 +76,15 @@ function App() {
                 </PrivateRoute>
               }
             />
+            <Route
+              path="/allVehicles"
+              element={
+                <PrivateRoute>
+                  <AllVehicles />
+                </PrivateRoute>
+              }
+            />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

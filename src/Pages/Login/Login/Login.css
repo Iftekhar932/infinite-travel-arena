@@ -20,6 +20,5 @@ div.form-box {
   background-color: rgb(134, 144, 150);
 }
 div.form-box a {
-  /* text-decoration: none; */
-  color: white;
+  text-decoration: none;
 }

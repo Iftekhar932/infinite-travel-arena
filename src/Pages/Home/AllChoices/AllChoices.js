@@ -7,6 +7,13 @@ import Choice from "../Choice/Choice";
 
 // import { Link } from "react-router-dom";
 
+/*********************
+ *
+ * NOTE: THIS COMPONENT IS RELATED ONLY  TO
+ *  PLACES.
+ *  NO VEHICLES
+ *
+ *  ******************** */
 const AllChoices = () => {
   const { user } = useAuth();
   const [choices, setChoices] = useState([]); // Sets All the chosen place's id
@@ -15,13 +22,16 @@ const AllChoices = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/allChoices?email=${user.email}`)
       .then((response) => response.json())
-      .then((data) => {
-        setChoices(data);
-      });
+      .then((data) => setChoices(data));
   }, []);
 
   return (
     <>
+      {!user.email && (
+        <h1 className="text-danger d-flex justify-content-center">
+          User not found....
+        </h1>
+      )}
       {choices == 0 && (
         <Button variant="dark" style={{ margin: " 5% 50%" }} disabled>
           <Spinner

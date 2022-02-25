@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import emptyImg from "../../Additional images/emptyImg.png";
+import AllChoices from "../AllChoices/AllChoices";
 
 import "./Profile.css";
 const Profile = () => {
@@ -22,7 +23,9 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* <AllChoices /> */}
+        <div className="placeBox-formation text-center my-5">
+          {user.email && <AllChoices />}
+        </div>
       </div>
     </>
   );

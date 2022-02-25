@@ -23,7 +23,7 @@ const Booking = () => {
     id: serviceID,
   };
 
-  // ************ POST API *******(INDEX.JS LINE 63)*****SAME API USED IN "VehicleBooking.js"
+  // ************ POST API *******(INDEX.JS LINE 82)*****SAME API USED IN "VehicleBooking.js"
   const handleConfirmation = () => {
     fetch("http://localhost:5000/booking", {
       method: "POST",

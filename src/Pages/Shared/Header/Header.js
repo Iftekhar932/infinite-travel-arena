@@ -46,7 +46,7 @@ const Header = () => {
               {/* href="#/action-1" removed this from the  "Dropdown.Item" */}
               {/* LOGIN BUTTON BELOW */}
               {!user.email && (
-                <Dropdown.Item>
+                <Dropdown.Item as={Link} to="/login">
                   <Link
                     style={{
                       color: "white",
@@ -68,7 +68,7 @@ const Header = () => {
               {/* href="#/action-3" removed this from the  "Dropdown.Item" */}
               {/* SIGNUP BUTTON BELOW */}
               {!user.email && (
-                <Dropdown.Item>
+                <Dropdown.Item as={Link} to="/signup">
                   <Link className="text-white" to="/signup">
                     <Button
                       variant="success"

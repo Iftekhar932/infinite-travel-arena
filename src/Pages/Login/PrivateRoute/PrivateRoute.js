@@ -6,6 +6,7 @@ import useAuth from "../../../hooks/useAuth";
 const PrivateRoute = ({ children }) => {
   const auth = useAuth();
   const { isLoading, user } = useAuth();
+
   if (isLoading) {
     return (
       <Button
