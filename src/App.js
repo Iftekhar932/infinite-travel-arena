@@ -61,7 +61,7 @@ function App() {
             />
 
             <Route
-              path="/allChoices"
+              path="/allChoices/"
               element={
                 <PrivateRoute>
                   <AllChoices />
@@ -73,14 +73,6 @@ function App() {
               element={
                 <PrivateRoute>
                   <Profile />
-                </PrivateRoute>
-              }
-            />
-            <Route
-              path="/allVehicles"
-              element={
-                <PrivateRoute>
-                  <AllVehicles />
                 </PrivateRoute>
               }
             />

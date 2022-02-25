@@ -4,9 +4,7 @@ import { Navigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const PrivateRoute = ({ children }) => {
-  const auth = useAuth();
   const { isLoading, user } = useAuth();
-
   if (isLoading) {
     return (
       <Button
@@ -27,7 +25,7 @@ const PrivateRoute = ({ children }) => {
     );
   }
 
-  return auth ? children : <Navigate to="/login" />;
+  return user.email ? children : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;

@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { Button, Spinner } from "react-bootstrap";
-
 import useAuth from "../../../hooks/useAuth";
 import Choice from "../Choice/Choice";
-
-// import { Link } from "react-router-dom";
 
 /*********************
  *
@@ -27,27 +23,7 @@ const AllChoices = () => {
 
   return (
     <>
-      {!user.email && (
-        <h1 className="text-danger d-flex justify-content-center">
-          User not found....
-        </h1>
-      )}
-      {choices == 0 && (
-        <Button variant="dark" style={{ margin: " 5% 50%" }} disabled>
-          <Spinner
-            as="span"
-            animation="grow"
-            size="sm"
-            role="status"
-            aria-hidden="true"
-          />
-          Loading...
-        </Button>
-      )}
-      <div
-        className="row d-flex justify-content-around align-items-center mx-auto"
-        style={{ width: "100%" }}
-      >
+      <div className="d-flex justify-content-around align-items-center flex-wrap my-5 text-start">
         {choices.map((choice) => (
           <Choice choice={choice} key={choice.id}></Choice>
         ))}
