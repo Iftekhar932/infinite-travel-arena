@@ -70,7 +70,6 @@ export default Booking;
 
 /* 
   *********TO DO*********
-1. POST OPERATION  XXXXXXXX
 2. DELETE OPERATION 
 3.TOTAL COST FUNCTION 
 */

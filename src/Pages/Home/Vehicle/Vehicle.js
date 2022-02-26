@@ -29,6 +29,9 @@ const Vehicle = ({ chosenVehicleID }) => {
         <Card.Text>
           <h6>Policy: {displayVehicles.policy}</h6>
         </Card.Text>
+        <Link to={`/profile/${displayVehicles?.id}`}>
+          <Button variant="primary">Remove</Button>
+        </Link>
       </Card.Body>
     </div>
   );

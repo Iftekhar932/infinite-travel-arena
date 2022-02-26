@@ -61,7 +61,7 @@ function App() {
             />
 
             <Route
-              path="/allChoices/"
+              path="/allChoices"
               element={
                 <PrivateRoute>
                   <AllChoices />

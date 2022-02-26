@@ -10,7 +10,7 @@ import Choice from "../Choice/Choice";
  *  NO VEHICLES
  *
  *  ******************** */
-const AllChoices = () => {
+const AllChoices = ({ handleDeletion }) => {
   const { user } = useAuth();
   const [choices, setChoices] = useState([]); // Sets All the chosen place's id
 
@@ -25,7 +25,11 @@ const AllChoices = () => {
     <>
       <div className="d-flex justify-content-around align-items-center flex-wrap my-5 text-start">
         {choices.map((choice) => (
-          <Choice choice={choice} key={choice.id}></Choice>
+          <Choice
+            choice={choice}
+            key={choice.id}
+            handleDeletion={handleDeletion}
+          ></Choice>
         ))}
       </div>
     </>
