@@ -33,7 +33,6 @@ const Booking = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data) {
-          alert("Order Confirmed");
           navigate("/"); // "Home" is "/" here
         }
       });
@@ -70,38 +69,5 @@ export default Booking;
 
 /* 
   *********TO DO*********
-2. DELETE OPERATION 
 3.TOTAL COST FUNCTION 
 */
-
-/* // DELETE API EXAMPLE
- deleteButton.addEventListener('click', _ => {
-   fetch('', {
-     method: 'delete',
-     headers: { 'Content-Type': 'application/json' },
-     body: JSON.stringify({
-       name: 'Darth Vad'
-     })
-   })
-     .then(res => {
-       if (res.ok) return res.json()
-     })
-     .then(data => {
-       window.location.reload()
-     })
- })
- We can then handle the event on our server side with the delete method:
- app.delete('/quotes', (req, res) => {
-    Handle delete event here
- })
- */
-
-/*  // DELETE API
-  const handleDeletion = () => {
-    const deleteInfo = { id: placeID, email };
-    fetch(`http://localhost:5000/deletePlace/${id}`, {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(deleteInfo),
-    });
-  }; */

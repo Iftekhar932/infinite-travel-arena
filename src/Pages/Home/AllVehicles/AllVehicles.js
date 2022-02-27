@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Button, Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import Vehicle from "../Vehicle/Vehicle";
@@ -38,16 +39,31 @@ const AllVehicles = ({ handleDeletion }) => {
       });
   }; */
   return (
-    <div className="d-flex justify-content-evenly flex-wrap my-5 w-100 text-start">
-      {chosenVehiclesID.map((chosenVehicleID) => (
-        <Vehicle
-          chosenVehicleID={chosenVehicleID}
-          key={chosenVehicleID._id}
-          vehicleDeleteID={vehicleDeleteID}
-          handleDeletion={handleDeletion}
-        ></Vehicle>
-      ))}
-    </div>
+    <>
+      <h1 className="">Vehicles that you've chosen</h1>
+      <div className="d-flex justify-content-evenly flex-wrap my-5 w-100 text-start">
+        {chosenVehiclesID == 0 && (
+          <Button variant="dark" disabled>
+            <Spinner
+              as="span"
+              animation="grow"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+            Loading...
+          </Button>
+        )}
+        {chosenVehiclesID.map((chosenVehicleID) => (
+          <Vehicle
+            chosenVehicleID={chosenVehicleID}
+            key={chosenVehicleID._id}
+            vehicleDeleteID={vehicleDeleteID}
+            handleDeletion={handleDeletion}
+          ></Vehicle>
+        ))}
+      </div>
+    </>
   );
 };
 

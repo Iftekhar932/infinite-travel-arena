@@ -7,7 +7,6 @@ import "./Profile.css";
 
 const Profile = () => {
   const { user, setIsHere } = useAuth();
-  setIsHere(false);
 
   // DELETE API (index.js line 72)
   const handleDeletion = (idToDelete, whichId) => {
@@ -28,11 +27,7 @@ const Profile = () => {
       body: JSON.stringify(deleteInfo),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(idToDelete);
-        console.log(data);
-        window.location.reload();
-      });
+      .then((data) => data);
   };
 
   return (
@@ -57,13 +52,11 @@ const Profile = () => {
 
         {/* used css from  as 'Places.css' & "Services.css" */}
         <div className="placeBox-formation text-center my-5">
-          <h1 className="mt-5 ">Places that you've chosen</h1>
           <div>
             {user.email && <AllChoices handleDeletion={handleDeletion} />}
           </div>
 
           <div className="my-5">
-            <h1 className="">Services that you've chosen</h1>
             <div className="">
               {user.email && <AllVehicles handleDeletion={handleDeletion} />}
             </div>

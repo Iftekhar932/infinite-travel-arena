@@ -34,7 +34,6 @@ const VehicleBooking = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data) {
-          alert("Order Confirmed");
           navigate("/"); // "Home" is "/" here
         }
       });

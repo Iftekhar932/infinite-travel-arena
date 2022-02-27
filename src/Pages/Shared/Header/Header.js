@@ -1,4 +1,3 @@
-import { MDBDropdownDivider } from "mdb-react-ui-kit";
 import React from "react";
 
 import {
@@ -10,11 +9,13 @@ import {
   DropdownButton,
 } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
 
 import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
-  const { user, signOutHandler, isHere } = useAuth();
+  const { user, signOutHandler, isHere, setIsHere } = useAuth();
+  setIsHere(true);
   const navigate = useNavigate();
 
   return (
@@ -34,11 +35,19 @@ const Header = () => {
               Home
             </Nav.Link>
 
-            {isHere && (
-              <Nav.Link as={Link} to="/allChoices">
-                My Choices
-              </Nav.Link>
-            )}
+            <Nav.Link>
+              {/* // here "/" is home  */}
+              <NavHashLink to="/#places-section" style={{ color: "initial" }}>
+                Places
+              </NavHashLink>
+            </Nav.Link>
+
+            <Nav.Link>
+              {/* // here "/" is home  */}
+              <NavHashLink to="/#services-section" style={{ color: "initial" }}>
+                Vehicles
+              </NavHashLink>{" "}
+            </Nav.Link>
           </Nav>
 
           {!user.email && (

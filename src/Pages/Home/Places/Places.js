@@ -14,7 +14,7 @@ const Places = () => {
   }, []);
 
   return (
-    <div className="placeBox-formation my-5">
+    <div className="placeBox-formation my-5" id="places-section">
       <div className="headerText">
         <h1 className="">Up Next We Are Going</h1>
         <div className="mb-5"></div>

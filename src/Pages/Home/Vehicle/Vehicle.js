@@ -29,16 +29,16 @@ const Vehicle = ({ chosenVehicleID, vehicleDeleteID, handleDeletion }) => {
         <Card.Text>
           <h6>Policy: {displayVehicles.policy}</h6>
         </Card.Text>
-        {/* <Link to={`/allVehicles/${displayVehicles?.id}`}> */}
         <Button
+          id="remove_Btn"
           onClick={() => {
             handleDeletion(displayVehicles?.id, "vehicle");
-          }} // it has become a loop....kinda... with link
+            document.getElementById("remove_Btn").value = "REmove";
+          }}
           variant="primary"
         >
           Remove
         </Button>
-        {/* </Link> */}
       </Card.Body>
     </div>
   );

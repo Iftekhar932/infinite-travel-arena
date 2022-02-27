@@ -13,7 +13,7 @@ const Services = () => {
   }, []);
   return (
     <>
-      <div className="placeBox-formation my-5">
+      <div className="placeBox-formation my-5" id="services-section">
         <div className="headerText">
           <h1 className="">Our Services</h1>
           <div className="mb-5">{/* straight Horizontal Line */}</div>

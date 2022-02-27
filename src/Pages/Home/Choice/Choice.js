@@ -31,16 +31,14 @@ const Choice = ({ choice, handleDeletion, placeDeleteID }) => {
             <Card.Text>
               <h6>Policy: {displayChoice?.policy}</h6>
             </Card.Text>
-            {/* <Link to={`/allChoices/${displayChoice?.id}`}> */}
             <Button
               variant="primary"
               onClick={() => {
-                handleDeletion(displayChoice?.id, "place");
+                // handleDeletion(displayChoice?.id, "place");
               }}
             >
               Remove
             </Button>
-            {/* </Link> */}
           </Card.Body>
         </div>
       )}
