@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import useAuth from "../../../hooks/useAuth";
 import Choice from "../Choice/Choice";
+import { useParams } from "react-router-dom";
 
 /*********************
  *
@@ -13,6 +14,7 @@ import Choice from "../Choice/Choice";
 const AllChoices = ({ handleDeletion }) => {
   const { user } = useAuth();
   const [choices, setChoices] = useState([]); // Sets All the chosen place's id
+  const { placeDeleteID } = useParams();
 
   // GET API (LINE 73 OF INDEX.JS)
   useEffect(() => {
@@ -29,6 +31,7 @@ const AllChoices = ({ handleDeletion }) => {
             choice={choice}
             key={choice.id}
             handleDeletion={handleDeletion}
+            placeDeleteID={placeDeleteID}
           ></Choice>
         ))}
       </div>

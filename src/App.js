@@ -52,7 +52,7 @@ function App() {
             />
 
             <Route
-              path="/profile/:placeDeleteID"
+              path="/profile"
               element={
                 <PrivateRoute>
                   <Profile />
@@ -61,10 +61,18 @@ function App() {
             />
 
             <Route
-              path="/allChoices"
+              path="/allChoices/:placeDeleteID"
               element={
                 <PrivateRoute>
                   <AllChoices />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/allVehicles/:vehicleDeleteID"
+              element={
+                <PrivateRoute>
+                  <AllVehicles />
                 </PrivateRoute>
               }
             />

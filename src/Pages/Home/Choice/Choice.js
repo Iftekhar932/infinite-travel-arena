@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const Choice = ({ choice, handleDeletion }) => {
+const Choice = ({ choice, handleDeletion, placeDeleteID }) => {
   const [displayChoice, setDisplayChoices] = useState([]); // NOTE:  to set the id of the chosen "PLACES" not "VEHICLES"
 
   // GET API (LINE 101 OF INDEX.JS)...for "PLACES"
@@ -31,11 +31,16 @@ const Choice = ({ choice, handleDeletion }) => {
             <Card.Text>
               <h6>Policy: {displayChoice?.policy}</h6>
             </Card.Text>
-            <Link to={`/profile/${displayChoice?.id}`}>
-              <Button variant="primary" onClick={handleDeletion}>
-                Remove
-              </Button>
-            </Link>
+            {/* <Link to={`/allChoices/${displayChoice?.id}`}> */}
+            <Button
+              variant="primary"
+              onClick={() => {
+                handleDeletion(displayChoice?.id, "place");
+              }}
+            >
+              Remove
+            </Button>
+            {/* </Link> */}
           </Card.Body>
         </div>
       )}

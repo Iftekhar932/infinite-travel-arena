@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const Vehicle = ({ chosenVehicleID }) => {
+const Vehicle = ({ chosenVehicleID, vehicleDeleteID, handleDeletion }) => {
   const [displayVehicles, setDisplayVehicles] = useState([]); // NOTE:  to set the id of the chosen "PLACES" not "VEHICLES"
 
   //GET API (INDEX.JS line143) // LOADING VEHICLE DATA WITH ID
@@ -29,9 +29,16 @@ const Vehicle = ({ chosenVehicleID }) => {
         <Card.Text>
           <h6>Policy: {displayVehicles.policy}</h6>
         </Card.Text>
-        <Link to={`/profile/${displayVehicles?.id}`}>
-          <Button variant="primary">Remove</Button>
-        </Link>
+        {/* <Link to={`/allVehicles/${displayVehicles?.id}`}> */}
+        <Button
+          onClick={() => {
+            handleDeletion(displayVehicles?.id, "vehicle");
+          }} // it has become a loop....kinda... with link
+          variant="primary"
+        >
+          Remove
+        </Button>
+        {/* </Link> */}
       </Card.Body>
     </div>
   );
