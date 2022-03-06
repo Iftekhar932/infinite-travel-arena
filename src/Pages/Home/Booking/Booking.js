@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { Card, Button } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const Booking = () => {
@@ -43,7 +43,7 @@ const Booking = () => {
   return (
     <div className="placeBox-formation text-center my-5">
       {/* BOX FOR PLACE DISPLAY  */}
-      <div className="singleBox">
+      <div className="singleBox text-start">
         <Card.Img variant="top" src={chosenPlace.imgURL} height="400px" />
         <Card.Body>
           <Card.Title>

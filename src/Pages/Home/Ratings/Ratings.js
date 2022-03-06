@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import blankImg from "../../Additional images/emptyImg.png";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import blankImg from "../../Additional images/emptyImg.png";
 
 const Ratings = () => {
   const [ratings, setRatings] = useState([]);
@@ -40,7 +40,7 @@ const Ratings = () => {
                 height: "auto",
                 minWidth: "11rem",
               }}
-              className="bg-light border border-3 rounded-pill p-5 mt-3"
+              className="bg-light border border-3 rounded-pill p-5 my-3"
             >
               <div className="mb-2">
                 <img

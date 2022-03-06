@@ -1,13 +1,13 @@
 import React, { lazy, Suspense } from "react";
 import { Button, Spinner } from "react-bootstrap";
-
-import useAuth from "../../../hooks/useAuth";
-import AllChoices from "../AllChoices/AllChoices";
+// import useAuth from "../../../hooks/useAuth";
+// import AllChoices from "../AllChoices/AllChoices";
 // import Banner from "../Banner/Banner";
 import Footer from "../Footer/Footer";
 import Places from "../Places/Places";
 // import Ratings from "../Ratings/Ratings";
 import Services from "../Services/Services";
+
 
 // const Places = lazy(() => import("../Places/Places"));
 const Ratings = lazy(() => import("../Ratings/Ratings"));

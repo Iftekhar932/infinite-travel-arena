@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Button, Card } from "react-bootstrap";
 
 const Choice = ({ choice, handleDeletion, placeDeleteID }) => {
   const [displayChoice, setDisplayChoices] = useState([]); // NOTE:  to set the id of the chosen "PLACES" not "VEHICLES"
@@ -19,7 +18,7 @@ const Choice = ({ choice, handleDeletion, placeDeleteID }) => {
   return (
     <>
       {displayChoice && (
-        <div className="singleBox mt-4 col-sm-12 col-md-4 col-lg-6 my-3">
+        <div className="singleBox mt-4 col-sm-12 col-md-4 col-lg-6 my-3 ">
           <Card.Img variant="top" src={displayChoice.imgURL} height="400px" />
           <Card.Body>
             <Card.Title>

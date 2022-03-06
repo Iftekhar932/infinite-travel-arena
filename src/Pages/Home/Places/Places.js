@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Spinner } from "react-bootstrap";
-import useAuth from "../../../hooks/useAuth";
-
 import Place from "../Place/Place";
 import "./Places.css";
+
 
 const Places = () => {
   const [places, setPlaces] = useState([]);
@@ -12,9 +11,7 @@ const Places = () => {
     fetch("http://localhost:5000/places")
       .then((res) => res.json())
       .then((data) => {
-        const result = data.filter((d) => d?.id != filteredDataDisplay[0]?.id);
-        // console.log(result, filteredDataDisplay);
-        setPlaces(result);
+        setPlaces(data);
       });
   }, []);
 
