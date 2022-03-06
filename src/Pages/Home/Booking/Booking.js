@@ -8,22 +8,24 @@ const Booking = () => {
   const navigate = useNavigate();
   const { serviceID } = useParams(); // GETTING PARAMS ****************
   const [chosenPlace, setChosenPlace] = useState({});
-
-  // ************ GET API FOR PLACES***** (INDEX.JS LINE 53)*******
+  // ************ GET API FOR PLACES***** (INDEX.JS LINE 54)*******
   useEffect(() => {
     fetch(`http://localhost:5000/services/${serviceID}`)
       .then((res) => res.json())
-      .then((data) => setChosenPlace(data));
-  }, []);
+      .then((data) => {
+        setChosenPlace(data);
+      });
+  }, [serviceID]);
 
-  // INFORMATION COLLECTION OBJECT
+  // OBJECT FOR INFORMATION COLLECTION
   const postInfo = {
     email: user.email,
-    name: user.name,
+    name: user.displayName,
     id: serviceID,
+    ...chosenPlace,
   };
 
-  // ************ POST API *******(INDEX.JS LINE 82)*****SAME API USED IN "VehicleBooking.js"
+  // ************ POST API *******(INDEX.JS LINE 89)*****SAME API USED IN "VehicleBooking.js"
   const handleConfirmation = () => {
     fetch("http://localhost:5000/booking", {
       method: "POST",
@@ -40,7 +42,6 @@ const Booking = () => {
 
   return (
     <div className="placeBox-formation text-center my-5">
-      <h1> serviceID: {serviceID}</h1>
       {/* BOX FOR PLACE DISPLAY  */}
       <div className="singleBox">
         <Card.Img variant="top" src={chosenPlace.imgURL} height="400px" />

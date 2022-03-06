@@ -13,16 +13,18 @@ import { Button, Spinner } from "react-bootstrap";
  *
  *  ******************** */
 const AllChoices = ({ handleDeletion }) => {
-  const { user } = useAuth();
+  const { user, setVanishAfterDelete } = useAuth();
   const [choices, setChoices] = useState([]); // Sets All the chosen place's id
   const { placeDeleteID } = useParams();
 
-  // GET API (LINE 73 OF INDEX.JS)
+  // GET API (LINE 98 OF INDEX.JS)
   useEffect(() => {
     fetch(`http://localhost:5000/allChoices?email=${user.email}`)
       .then((response) => response.json())
-      .then((data) => setChoices(data));
-  }, []);
+      .then((data) => {
+        setChoices(data);
+      });
+  }, [user.email]);
 
   return (
     <>

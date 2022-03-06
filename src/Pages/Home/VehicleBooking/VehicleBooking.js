@@ -9,7 +9,7 @@ const VehicleBooking = () => {
   const navigate = useNavigate();
   const [chosenVehicle, setChosenVehicle] = useState({});
   const { vehicleID } = useParams();
-
+  console.log(chosenVehicle);
   // ************ GET API VEHICLES***** (INDEX.JS LINE 63)*******
   useEffect(() => {
     fetch(`http://localhost:5000/vehicles/${vehicleID}`)
@@ -17,15 +17,16 @@ const VehicleBooking = () => {
       .then((data) => setChosenVehicle(data));
   }, []);
 
-  // INFORMATION COLLECTION OBJECT
-  const postInfo = {
-    email: user.email,
-    name: user.name,
-    id: vehicleID,
-  };
-
   // ************ POST API *******(INDEX.JS LINE 127)
   const handleConfirmation = () => {
+    // INFORMATION COLLECTION OBJECT
+    const postInfo = {
+      email: user.email,
+      name: user.name,
+      id: vehicleID,
+      ...chosenVehicle,
+    };
+    console.log(postInfo);
     fetch("http://localhost:5000/vehicleBooking", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

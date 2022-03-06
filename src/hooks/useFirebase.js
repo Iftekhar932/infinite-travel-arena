@@ -17,7 +17,7 @@ const useFirebase = () => {
   const auth = getAuth();
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [isHere, setIsHere] = useState(true);
+  const [vanishAfterDelete, setVanishAfterDelete] = useState(true); // In Places.js filtering data
 
   /************** GOOGLE SIGN UP BELOW  ***************/
   const googleProvider = new GoogleAuthProvider();
@@ -135,8 +135,8 @@ const useFirebase = () => {
     signOutHandler,
     user,
     isLoading,
-    setIsHere,
-    isHere,
+    setVanishAfterDelete,
+    vanishAfterDelete,
   };
 };
 

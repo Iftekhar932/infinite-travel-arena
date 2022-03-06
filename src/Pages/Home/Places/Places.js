@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Spinner } from "react-bootstrap";
+import useAuth from "../../../hooks/useAuth";
 
 import Place from "../Place/Place";
 import "./Places.css";
@@ -10,7 +11,11 @@ const Places = () => {
   useEffect(() => {
     fetch("http://localhost:5000/places")
       .then((res) => res.json())
-      .then((data) => setPlaces(data));
+      .then((data) => {
+        const result = data.filter((d) => d?.id != filteredDataDisplay[0]?.id);
+        // console.log(result, filteredDataDisplay);
+        setPlaces(result);
+      });
   }, []);
 
   return (
@@ -41,3 +46,8 @@ const Places = () => {
 };
 
 export default Places;
+
+/*  const defaultData = data.map((d) => d.id);
+        const dataToCompare = filteredDataDisplay.map((d) => d.id);
+        const result = defaultData.filter((v) => defaultData == dataToCompare);
+        console.log(result); */

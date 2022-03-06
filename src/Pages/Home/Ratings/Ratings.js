@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import blankImg from "../../Additional images/emptyImg.png";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/navigation";
@@ -24,7 +24,7 @@ const Ratings = () => {
       ))} */}
 
       <Swiper
-        spaceBetween={20}
+        spaceBetween={80}
         slidesPerView={3}
         navigation
         pagination={{ clickable: true }}
@@ -34,11 +34,27 @@ const Ratings = () => {
         {ratings.map((rating) => (
           <SwiperSlide key={rating.email}>
             <div
-              style={{ width: "10rem", display: "block" }}
-              className="border bg-light border-dark p-5 d-block"
+              style={{
+                display: "block",
+                wordWrap: "break-word",
+                height: "auto",
+                minWidth: "11rem",
+              }}
+              className="bg-light border border-3 rounded-pill p-5 mt-3"
             >
-              <h6>Email:{rating.email}</h6>
-              <h5>review:{rating.review}</h5>
+              <div className="mb-2">
+                <img
+                  src={blankImg}
+                  // width="100%"
+                  className="rounded-circle w-25 ms-2 border border-dark"
+                  alt=""
+                />
+              </div>
+              <div>
+                {" "}
+                <h6>Email:{rating.email}</h6>
+                <h5>review:{rating.review}</h5>
+              </div>
             </div>
           </SwiperSlide>
         ))}

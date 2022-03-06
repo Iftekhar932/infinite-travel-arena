@@ -14,8 +14,7 @@ import { NavHashLink } from "react-router-hash-link";
 import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
-  const { user, signOutHandler, isHere, setIsHere } = useAuth();
-  setIsHere(true);
+  const { user, signOutHandler } = useAuth();
   const navigate = useNavigate();
 
   return (
@@ -31,20 +30,19 @@ const Header = () => {
           </Navbar.Brand>
           <Nav className="me-auto">
             {/* TO PREVENT FROM RELOADING THE PAGE WHILE ROUTING USED "as={Link}" and instead of "path" used "to" */}
-            <Nav.Link as={Link} to="/">
+            <Nav.Link as={Link} to="/" className="text-white">
               Home
             </Nav.Link>
 
             <Nav.Link>
-              {/* // here "/" is home  */}
-              <NavHashLink to="/#places-section" style={{ color: "initial" }}>
+              <NavHashLink to="/#places-section" className="text-white">
                 Places
               </NavHashLink>
             </Nav.Link>
 
             <Nav.Link>
               {/* // here "/" is home  */}
-              <NavHashLink to="/#services-section" style={{ color: "initial" }}>
+              <NavHashLink to="/#services-section" className="text-white">
                 Vehicles
               </NavHashLink>{" "}
             </Nav.Link>

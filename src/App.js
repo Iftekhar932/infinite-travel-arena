@@ -1,6 +1,8 @@
 import "./App.css";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+// COMPONENTS BELOW
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
 import Signup from "./Pages/Login/Signup/Signup";
@@ -14,6 +16,7 @@ import AllChoices from "./Pages/Home/AllChoices/AllChoices";
 import Profile from "./Pages/Home/Profile/Profile";
 import VehicleBooking from "./Pages/Home/VehicleBooking/VehicleBooking";
 import AllVehicles from "./Pages/Home/AllVehicles/AllVehicles";
+import Ratings from "./Pages/Home/Ratings/Ratings";
 
 function App() {
   return (
@@ -28,6 +31,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <RatingForm />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/ratings"
+              element={
+                <PrivateRoute>
+                  <Ratings />
                 </PrivateRoute>
               }
             />

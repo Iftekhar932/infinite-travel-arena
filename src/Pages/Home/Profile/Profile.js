@@ -6,7 +6,7 @@ import AllVehicles from "../AllVehicles/AllVehicles";
 import "./Profile.css";
 
 const Profile = () => {
-  const { user, setIsHere } = useAuth();
+  const { user } = useAuth();
 
   // DELETE API (index.js line 72)
   const handleDeletion = (idToDelete, whichId) => {
@@ -40,13 +40,14 @@ const Profile = () => {
               src={emptyImg}
               alt="No Image of user"
               width="100%"
-              style={{ borderRadius: "100%" }}
+              // style={{ borderRadius: "100%" }}
+              className="rounded-circle"
             />
           </div>
 
           <div className="mt-2 mx-auto text-center col-sm-12">
             <h1>{user.displayName}</h1>
-            <h6>Email:{user.email}</h6>
+            <h4>Email:{user.email}</h4>
           </div>
         </div>
 

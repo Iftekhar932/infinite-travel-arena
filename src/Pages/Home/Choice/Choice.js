@@ -34,7 +34,7 @@ const Choice = ({ choice, handleDeletion, placeDeleteID }) => {
             <Button
               variant="primary"
               onClick={() => {
-                // handleDeletion(displayChoice?.id, "place");
+                handleDeletion(displayChoice?.id, "place");
               }}
             >
               Remove
