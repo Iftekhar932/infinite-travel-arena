@@ -9,7 +9,6 @@ import Places from "../Places/Places";
 import Services from "../Services/Services";
 
 
-// const Places = lazy(() => import("../Places/Places"));
 const Ratings = lazy(() => import("../Ratings/Ratings"));
 const Banner = lazy(() => import("../Banner/Banner"));
 

@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import useAuth from "../../../hooks/useAuth";
+
 const RatingForm = () => {
   const { user } = useAuth();
-  // const emailRef = useRef();
   const reviewRef = useRef();
 
   const submitHandler = (e) => {

@@ -18,15 +18,15 @@ const Ratings = () => {
   // To use javascript "script"
 
   return (
-    <div style={{ cursor: "grab" }}>
+    <div>
       {/* {ratings.map((rating) => (
         <Rating rating={rating} key={rating._id}></Rating>
       ))} */}
+      <h1 className="text-center my-4">Reviews by customers</h1>
 
       <Swiper
         spaceBetween={80}
         slidesPerView={3}
-        navigation
         pagination={{ clickable: true }}
         onSlideChange={(d) => d}
         onSwiper={(swiper) => swiper}
@@ -38,7 +38,8 @@ const Ratings = () => {
                 display: "block",
                 wordWrap: "break-word",
                 height: "auto",
-                minWidth: "11rem",
+                minWidth: "15rem",
+                cursor: "grab",
               }}
               className="bg-light border border-3 rounded-pill p-5 my-3"
             >

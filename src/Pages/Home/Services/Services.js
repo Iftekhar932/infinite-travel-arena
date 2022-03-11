@@ -13,14 +13,17 @@ const Services = () => {
   }, []);
   return (
     <>
-      <div className="placeBox-formation my-5" id="services-section">
+      <div
+        className="placeBox-formation my-5 d-grid place-items-center"
+        id="services-section"
+      >
         <div className="headerText">
           <h1 className="">Our Services</h1>
           <div className="mb-5">{/* straight Horizontal Line */}</div>
         </div>
 
         <div className="placeDisplayBox">
-          {services == 0 && (
+          {services === 0 && (
             <Button variant="dark" disabled>
               <Spinner
                 as="span"
