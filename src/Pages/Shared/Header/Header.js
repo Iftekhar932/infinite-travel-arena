@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" fixed="top">
+      <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand
             as={Link}

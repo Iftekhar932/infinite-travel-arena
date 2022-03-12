@@ -51,7 +51,7 @@ const Ratings = () => {
                   alt=""
                 />
               </div>
-              <div>
+              <div style={{ fontSize: "14vw" }}>
                 {" "}
                 <h6>Email:{rating.email}</h6>
                 <h5>review:{rating.review}</h5>

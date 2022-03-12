@@ -1,15 +1,7 @@
-.ServiceSingleBox {
-  padding: 2rem;
-  /* width: clamp(25rem, 25vw, 31vw); */
-  width: clamp(25rem, 30rem, 35rem);
-  max-height: 950px;
-  height: initial;
-  min-height: 850px;
-  display: inline-block;
+.singleBox {
   border-radius: 40%/ 10% 10%;
-  background-color: rgb(238, 238, 238);
+  word-wrap: break-word;
 }
-.ServiceSingleBox img {
+.singleBox img {
   border-radius: 40%/ 10% 10%;
-  width: 100%;
 }

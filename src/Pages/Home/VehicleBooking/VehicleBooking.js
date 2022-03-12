@@ -15,7 +15,7 @@ const VehicleBooking = () => {
     fetch(`https://calm-basin-94890.herokuapp.com/vehicles/${vehicleID}`)
       .then((res) => res.json())
       .then((data) => setChosenVehicle(data));
-  }, []);
+  }, [vehicleID]);
 
   // ************ POST API *******(INDEX.JS LINE 127)
   const handleConfirmation = () => {

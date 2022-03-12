@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Button, Spinner } from "react-bootstrap";
+import { Button, Container, Row, Spinner } from "react-bootstrap";
 import Place from "../Place/Place";
-import "./Places.css";
 
 const Places = () => {
   const [places, setPlaces] = useState([]);
@@ -15,27 +14,30 @@ const Places = () => {
   }, []);
 
   return (
-    <div className="placeBox-formation my-5" id="places-section">
+    <div className="mx-auto text-center my-5 mx-auto" id="places-section">
       <div className="headerText">
-        <h1 className="">Up Next We Are Going</h1>
-        <div className="mb-5"></div>
+        <h1 className="mb-5">Up Next We Are Going</h1>
       </div>
       <div className="placeDisplayBox">
-        {places == 0 && (
-          <Button variant="dark" disabled>
-            <Spinner
-              as="span"
-              animation="grow"
-              size="sm"
-              role="status"
-              aria-hidden="true"
-            />
-            Loading...
-          </Button>
-        )}
-        {places.map((place) => {
-          return <Place place={place} key={place._id}></Place>;
-        })}
+        <Container>
+          <Row className="placeDisplayBox">
+            {places === 0 && (
+              <Button variant="dark" disabled>
+                <Spinner
+                  as="span"
+                  animation="grow"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                />
+                Loading...
+              </Button>
+            )}
+            {places.map((place) => {
+              return <Place place={place} key={place._id}></Place>;
+            })}
+          </Row>
+        </Container>
       </div>
     </div>
   );
