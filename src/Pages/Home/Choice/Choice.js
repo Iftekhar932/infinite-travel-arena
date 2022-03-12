@@ -6,7 +6,9 @@ const Choice = ({ choice, handleDeletion, placeDeleteID }) => {
 
   // GET API (LINE 101 OF INDEX.JS)...for "PLACES"
   useEffect(() => {
-    fetch(`http://localhost:5000/choiceDataLoad?id=${choice.id}`)
+    fetch(
+      `https://calm-basin-94890.herokuapp.com/choiceDataLoad?id=${choice.id}`
+    )
       .then((response) => response.json())
       .then((data) => {
         data.map((v) => {

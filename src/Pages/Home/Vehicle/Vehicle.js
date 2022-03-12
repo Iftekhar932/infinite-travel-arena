@@ -7,7 +7,9 @@ const Vehicle = ({ chosenVehicleID, vehicleDeleteID, handleDeletion }) => {
 
   //GET API (INDEX.JS line143) // LOADING VEHICLE DATA WITH ID
   useEffect(() => {
-    fetch(`http://localhost:5000/chosenVehicleLoad?id=${chosenVehicleID.id}`)
+    fetch(
+      `https://calm-basin-94890.herokuapp.com/chosenVehicleLoad?id=${chosenVehicleID.id}`
+    )
       .then((response) => response.json())
       .then((data) => {
         data.map((v) => {

@@ -13,11 +13,11 @@ const Profile = () => {
     const deleteInfo = { id: idToDelete, email: user.email };
     let url;
     if (whichId === "vehicle") {
-      const urlVehicle = `http://localhost:5000/deleteVehicle?id=${idToDelete}`;
+      const urlVehicle = `https://calm-basin-94890.herokuapp.com/deleteVehicle?id=${idToDelete}`;
       url = urlVehicle;
     }
     if (whichId === "place") {
-      const urlPlace = `http://localhost:5000/deletePlace?id=${idToDelete}`;
+      const urlPlace = `https://calm-basin-94890.herokuapp.com/deletePlace?id=${idToDelete}`;
       url = urlPlace;
     }
 

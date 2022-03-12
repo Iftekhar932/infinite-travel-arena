@@ -11,7 +11,7 @@ const Ratings = () => {
   const [ratings, setRatings] = useState([]);
   //GET API
   useEffect(() => {
-    fetch("http://localhost:5000/ratings")
+    fetch("https://calm-basin-94890.herokuapp.com/ratings")
       .then((res) => res.json())
       .then((data) => setRatings(data));
   }, []);

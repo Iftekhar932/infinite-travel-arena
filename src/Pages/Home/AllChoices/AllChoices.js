@@ -19,7 +19,7 @@ const AllChoices = ({ handleDeletion }) => {
 
   // GET API (LINE 98 OF INDEX.JS)
   useEffect(() => {
-    fetch(`http://localhost:5000/allChoices?email=${user.email}`)
+    fetch(`allChoices?email=${user.email}`)
       .then((response) => response.json())
       .then((data) => {
         setChoices(data);

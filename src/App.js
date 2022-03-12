@@ -30,7 +30,7 @@ function App() {
               path="/ratingform"
               element={
                 <PrivateRoute>
-                  <ratingform />
+                  <RatingForm />
                 </PrivateRoute>
               }
             />

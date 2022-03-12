@@ -12,7 +12,7 @@ const VehicleBooking = () => {
   console.log(chosenVehicle);
   // ************ GET API VEHICLES***** (INDEX.JS LINE 63)*******
   useEffect(() => {
-    fetch(`http://localhost:5000/vehicles/${vehicleID}`)
+    fetch(`https://calm-basin-94890.herokuapp.com/vehicles/${vehicleID}`)
       .then((res) => res.json())
       .then((data) => setChosenVehicle(data));
   }, []);
@@ -27,7 +27,7 @@ const VehicleBooking = () => {
       ...chosenVehicle,
     };
     console.log(postInfo);
-    fetch("http://localhost:5000/vehicleBooking", {
+    fetch("https://calm-basin-94890.herokuapp.com/vehicleBooking", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(postInfo),

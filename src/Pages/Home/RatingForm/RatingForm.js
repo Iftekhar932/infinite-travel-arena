@@ -11,7 +11,7 @@ const RatingForm = () => {
     const review = reviewRef.current.value;
     const reviews = { email: user.email, review: review };
 
-    fetch("http://localhost:5000/ratingform", {
+    fetch("https://calm-basin-94890.herokuapp.com/ratingform", {
       method: "POST",
       headers: {
         "content-type": "application/json",

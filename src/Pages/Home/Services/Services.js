@@ -7,7 +7,7 @@ const Services = () => {
   const [services, setServices] = useState([]);
   // GET API(INDEX.JS LINE 45)
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://calm-basin-94890.herokuapp.com/services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);

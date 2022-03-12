@@ -3,12 +3,11 @@ import { Button, Spinner } from "react-bootstrap";
 import Place from "../Place/Place";
 import "./Places.css";
 
-
 const Places = () => {
   const [places, setPlaces] = useState([]);
   // GET API IN (INDEX.JS LINE 33)
   useEffect(() => {
-    fetch("http://localhost:5000/places")
+    fetch("https://calm-basin-94890.herokuapp.com/places")
       .then((res) => res.json())
       .then((data) => {
         setPlaces(data);

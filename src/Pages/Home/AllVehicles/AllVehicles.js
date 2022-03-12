@@ -19,7 +19,9 @@ const AllVehicles = ({ handleDeletion }) => {
   // ************ GET API VEHICLES***** (INDEX.JS LINE 136)******
   // TO GET WHICH ONE OF THE VEHICLES USER CHOSE
   useEffect(() => {
-    fetch(`http://localhost:5000/allVehicles?email=${user.email}`)
+    fetch(
+      `https://calm-basin-94890.herokuapp.com/allVehicles?email=${user.email}`
+    )
       .then((response) => response.json())
       .then((data) => setChosenVehiclesID(data));
   }, []);
@@ -27,7 +29,7 @@ const AllVehicles = ({ handleDeletion }) => {
   // DELETE API (index.js line 72)
   /* const handleDeletion = () => {
     const deleteInfo = { id: vehicleAPI_id, email: user.email };
-    fetch(`http://localhost:5000/deletePlace/${}`, {
+    fetch(`https://calm-basin-94890.herokuapp.com/deletePlace/${}`, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(deleteInfo),

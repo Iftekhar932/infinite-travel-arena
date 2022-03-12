@@ -10,7 +10,7 @@ const Booking = () => {
   const [chosenPlace, setChosenPlace] = useState({});
   // ************ GET API FOR PLACES***** (INDEX.JS LINE 54)*******
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${serviceID}`)
+    fetch(`https://calm-basin-94890.herokuapp.com/services/${serviceID}`)
       .then((res) => res.json())
       .then((data) => {
         setChosenPlace(data);
@@ -27,7 +27,7 @@ const Booking = () => {
 
   // ************ POST API *******(INDEX.JS LINE 89)*****SAME API USED IN "VehicleBooking.js"
   const handleConfirmation = () => {
-    fetch("http://localhost:5000/booking", {
+    fetch("https://calm-basin-94890.herokuapp.com/booking", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(postInfo),
