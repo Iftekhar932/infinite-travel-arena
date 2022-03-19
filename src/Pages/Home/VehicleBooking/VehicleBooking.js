@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Container, Row, Col } from "react-bootstrap";
 
 import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
@@ -9,7 +9,6 @@ const VehicleBooking = () => {
   const navigate = useNavigate();
   const [chosenVehicle, setChosenVehicle] = useState({});
   const { vehicleID } = useParams();
-  console.log(chosenVehicle);
   // ************ GET API VEHICLES***** (INDEX.JS LINE 63)*******
   useEffect(() => {
     fetch(`https://calm-basin-94890.herokuapp.com/vehicles/${vehicleID}`)
@@ -26,6 +25,7 @@ const VehicleBooking = () => {
       id: vehicleID,
       ...chosenVehicle,
     };
+    console.log(chosenVehicle);
     console.log(postInfo);
     fetch("https://calm-basin-94890.herokuapp.com/vehicleBooking", {
       method: "POST",
@@ -40,32 +40,36 @@ const VehicleBooking = () => {
       });
   };
   return (
-    <div className="placeBox-formation text-center my-5">
-      <div className="singleBox">
-        <Card.Img variant="top" src={chosenVehicle.imgURL} height="400px" />
-        <Card.Body>
-          <Card.Title>
-            <h3>{chosenVehicle.destination}</h3>
-          </Card.Title>
-          <Card.Title>Rating: {chosenVehicle.rating}</Card.Title>
-          <Card.Title>Departure Date: {chosenVehicle.time}</Card.Title>
-          <Card.Title>Discounts: {chosenVehicle.discount}</Card.Title>
-          <Card.Text>
-            <h6>Policy: {chosenVehicle.policy}</h6>
-          </Card.Text>
-          {/* PREVIOUS ONE IS THE FIRST ONE */}
-          <Button variant="primary" onClick={handleConfirmation}>
-            Confirm
-          </Button>
+    <Container>
+      <Row>
+        <Col xs={12} md={6} lg={4} className="mx-auto">
+          <Card className="singleBox shadow text-start my-3 p-4 border border-round">
+            <Card.Img variant="top" src={chosenVehicle.imgURL} height="400px" />
+            <Card.Body>
+              <Card.Title>
+                <h3>{chosenVehicle.destination}</h3>
+              </Card.Title>
+              <Card.Title>Rating: {chosenVehicle.rating}</Card.Title>
+              <Card.Title>Departure Date: {chosenVehicle.time}</Card.Title>
+              <Card.Title>Discounts: {chosenVehicle.discount}</Card.Title>
+              <Card.Text>
+                <h6>Policy: {chosenVehicle.policy}</h6>
+              </Card.Text>
+              {/* PREVIOUS ONE IS THE FIRST ONE */}
+              <Button variant="primary" onClick={handleConfirmation}>
+                Confirm
+              </Button>
 
-          {/* <Link to={`allChoices/`}>
+              {/* <Link to={`allChoices/`}>
             <Button variant="primary" onClick={handleConfirmation}>
               Confirm
             </Button>
           </Link> */}
-        </Card.Body>
-      </div>
-    </div>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

@@ -11,7 +11,7 @@ const Services = () => {
       .then((data) => setServices(data));
   }, []);
   return (
-    <div className="mx-auto text-center my-5 mx-auto" id="places-section">
+    <div className="mx-auto text-center my-5 mx-auto" id="services-section">
       <div className="headerText">
         <h1 className="mb-5">Vehicles we can provide</h1>
       </div>
@@ -31,7 +31,7 @@ const Services = () => {
               </Button>
             )}
             {services.map((service) => {
-              return <Service service={service} key={service._id}></Service>;
+              return <Service service={service} key={service._id} />;
             })}
           </Row>
         </Container>

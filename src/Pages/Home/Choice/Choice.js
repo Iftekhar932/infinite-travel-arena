@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Col } from "react-bootstrap";
 
-const Choice = ({ choice, handleDeletion, placeDeleteID }) => {
+const Choice = ({ choice, handleDeletion }) => {
   const [displayChoice, setDisplayChoices] = useState([]); // NOTE:  to set the id of the chosen "PLACES" not "VEHICLES"
 
   // GET API (LINE 101 OF INDEX.JS)...for "PLACES"
@@ -19,9 +19,9 @@ const Choice = ({ choice, handleDeletion, placeDeleteID }) => {
 
   return (
     <>
-      {displayChoice && (
-        <div className="singleBox mt-4 col-sm-12 col-md-4 col-lg-6 my-3 ">
-          <Card.Img variant="top" src={displayChoice.imgURL} height="400px" />
+      <Col xs={12} md={6} lg={4} className="mx-auto">
+        <Card className="singleBox shadow text-start my-3 p-4 border border-round">
+          <Card.Img variant="top" src={displayChoice.imgURL} height="300px" />
           <Card.Body>
             <Card.Title>
               <h3>{displayChoice?.destination}</h3>
@@ -34,15 +34,13 @@ const Choice = ({ choice, handleDeletion, placeDeleteID }) => {
             </Card.Text>
             <Button
               variant="primary"
-              onClick={() => {
-                handleDeletion(displayChoice?.id, "place");
-              }}
+              onClick={() => handleDeletion(displayChoice?.id, "place")}
             >
               Remove
             </Button>
           </Card.Body>
-        </div>
-      )}
+        </Card>
+      </Col>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Col } from "react-bootstrap";
+
 import { Link } from "react-router-dom";
 
 const Vehicle = ({ chosenVehicleID, vehicleDeleteID, handleDeletion }) => {
@@ -19,30 +20,28 @@ const Vehicle = ({ chosenVehicleID, vehicleDeleteID, handleDeletion }) => {
   }, [chosenVehicleID.id]);
 
   return (
-    <div className="singleBox my-3">
-      <Card.Img variant="top" src={displayVehicles.imgURL} height="400px" />
-      <Card.Body>
-        <Card.Title>
-          <h3>{displayVehicles.category}</h3>
-        </Card.Title>
-        <Card.Title>Rating: {displayVehicles.rating}</Card.Title>
-        <Card.Title>cost: {displayVehicles.cost}</Card.Title>
-        <Card.Title>Discounts: {displayVehicles.discount}</Card.Title>
-        <Card.Text>
-          <h6>Policy: {displayVehicles.policy}</h6>
-        </Card.Text>
-        <Button
-          id="remove_Btn"
-          onClick={() => {
-            handleDeletion(displayVehicles?.id, "vehicle");
-            document.getElementById("remove_Btn").value = "REmove";
-          }}
-          variant="primary"
-        >
-          Remove
-        </Button>
-      </Card.Body>
-    </div>
+    <Col xs={12} md={6} lg={4} className="mx-auto">
+      <Card className="singleBox shadow text-start my-3 p-4 border border-round">
+        <Card.Img variant="top" src={displayVehicles.imgURL} height="300px" />
+        <Card.Body>
+          <Card.Title>{displayVehicles.category}</Card.Title>
+          <Card.Title>Rating: {displayVehicles.rating}</Card.Title>
+          <Card.Title>
+            <h6>Discounts: {displayVehicles.discount}</h6>
+          </Card.Title>
+          <Button
+            id="remove_Btn"
+            onClick={() => {
+              handleDeletion(displayVehicles?.id, "vehicle");
+              document.getElementById("remove_Btn").value = "REmove";
+            }}
+            variant="primary"
+          >
+            Remove
+          </Button>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 };
 

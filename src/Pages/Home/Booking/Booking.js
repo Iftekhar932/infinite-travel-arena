@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
@@ -41,28 +41,29 @@ const Booking = () => {
   };
 
   return (
-    <div className="placeBox-formation text-center my-5">
-      {/* BOX FOR PLACE DISPLAY  */}
-      <div className="singleBox text-start">
-        <Card.Img variant="top" src={chosenPlace.imgURL} height="400px" />
-        <Card.Body>
-          <Card.Title>
-            <h3>{chosenPlace.destination}</h3>
-          </Card.Title>
-          <Card.Title>Rating: {chosenPlace.rating}</Card.Title>
-          <Card.Title>Departure Date: {chosenPlace.time}</Card.Title>
-          <Card.Title>Discounts: {chosenPlace.discount}</Card.Title>
-          <Card.Text>
-            <h6>Policy: {chosenPlace.policy}</h6>
-          </Card.Text>
-          {/* PREVIOUS ONE IS THE FIRST ONE */}
-          <Button variant="primary" onClick={handleConfirmation}>
-            Confirm
-          </Button>
-        </Card.Body>
-      </div>
-      {/* BOX FOR VEHICLE DISPLAY  */}
-    </div>
+    <Container>
+      <Row>
+        <Col xs={12} md={6} lg={4} className="mx-auto">
+          <Card className="singleBox shadow text-start my-3 p-4 border border-round">
+            <Card.Img variant="top" src={chosenPlace.imgURL} height="400px" />
+            <Card.Body>
+              <Card.Title>
+                <h3>{chosenPlace.destination}</h3>
+              </Card.Title>
+              <Card.Title>Rating: {chosenPlace.rating}</Card.Title>
+              <Card.Title>Departure Date: {chosenPlace.time}</Card.Title>
+              <Card.Title>Discounts: {chosenPlace.discount}</Card.Title>
+              <Card.Text>
+                <h6>Policy: {chosenPlace.policy}</h6>
+              </Card.Text>
+              <Button variant="primary" onClick={handleConfirmation}>
+                Confirm
+              </Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import emptyImg from "../../Additional images/emptyImg.png";
 import AllChoices from "../AllChoices/AllChoices";
@@ -7,6 +7,7 @@ import "./Profile.css";
 
 const Profile = () => {
   const { user } = useAuth();
+  const [isUpdated, setIsUpdated] = useState(false);
 
   // DELETE API (index.js line 72)
   const handleDeletion = (idToDelete, whichId) => {
@@ -27,7 +28,10 @@ const Profile = () => {
       body: JSON.stringify(deleteInfo),
     })
       .then((res) => res.json())
-      .then((data) => data);
+      .then((data) => {
+        data = data;
+        setIsUpdated(true);
+      });
   };
 
   return (
@@ -40,7 +44,6 @@ const Profile = () => {
               src={emptyImg}
               alt="No Image of user"
               width="100%"
-              // style={{ borderRadius: "100%" }}
               className="rounded-circle"
             />
           </div>
@@ -51,10 +54,15 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* used css from  as 'Places.css' & "Services.css" */}
-        <div className="placeBox-formation text-center my-5">
+        <div className="text-center my-5">
           <div>
-            {user.email && <AllChoices handleDeletion={handleDeletion} />}
+            {user.email && (
+              <AllChoices
+                isUpdated={isUpdated}
+                handleDeletion={handleDeletion}
+                setIsUpdated={setIsUpdated}
+              />
+            )}
           </div>
 
           <div className="my-5">
